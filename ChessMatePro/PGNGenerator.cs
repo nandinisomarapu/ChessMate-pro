@@ -49,5 +49,10 @@ namespace ChessMate_pro
             ExportFile exportFile = new ExportFile();
             exportFile.ShowDialog();
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

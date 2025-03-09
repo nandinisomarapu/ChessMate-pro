@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessMate pro", "ChessMate pro\ChessMate pro.csproj", "{FB030ADC-FB5C-4E32-9D4F-F5EB08C050DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessMatePro", "ChessMatePro\ChessMatePro.csproj", "{FB030ADC-FB5C-4E32-9D4F-F5EB08C050DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

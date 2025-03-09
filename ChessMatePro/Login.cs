@@ -40,7 +40,7 @@ namespace ChessMate_pro
 
         private void Login_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\__Students\Somarapu\ChessMate pro\ChessMate pro\Database1.mdf"";Integrated Security=True");
+            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nandini\source\repos\ChessMate-pro\ChessMatePro\Database1.mdf;Integrated Security=True");
             cn.Open();
         }
 
@@ -58,6 +58,13 @@ namespace ChessMate_pro
             SignUp signUp = new SignUp();
             signUp.ShowDialog();
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomePage homePage = new HomePage();
+            homePage.ShowDialog();
         }
     }
 }

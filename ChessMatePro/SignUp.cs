@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,12 +30,28 @@ namespace ChessMate_pro
 
         private void SignUp_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\__Students\Somarapu\ChessMate pro\ChessMate pro\Database1.mdf"";Integrated Security=True");
-            cn.Open();
+            try
+            {
+
+                cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nandini\source\repos\ChessMate-pro\ChessMatePro\Database1.mdf;Integrated Security=True");
+                cn.Open();
+                //MessageBox.Show("SqlConnection Opened successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SignUpButton_Click(object sender, EventArgs e)
         {
+
+            if (cn == null || cn.State == ConnectionState.Closed)
+            {
+                MessageBox.Show("Database connection is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (!string.IsNullOrWhiteSpace(confirmpassword.Text) &&
                 !string.IsNullOrWhiteSpace(password.Text) &&
                 !string.IsNullOrWhiteSpace(username.Text))
@@ -59,7 +76,7 @@ namespace ChessMate_pro
                             dr.Close();
                             cmd = new SqlCommand("INSERT INTO LoginTable (username, password) VALUES (@username, @password)", cn);
                             cmd.Parameters.AddWithValue("@username", username.Text);
-                            cmd.Parameters.AddWithValue("@password", password.Text);
+                            cmd.Parameters.AddWithValue("@password", hashPassword(password.Text));
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Your account has been created, and you are ready to login now!",
                                 "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -86,12 +103,14 @@ namespace ChessMate_pro
        
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private string hashPassword(string inputPassword)
         {
-
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputPassword));
+                return Convert.ToBase64String(bytes);
+            }
         }
-
-      
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -135,6 +154,11 @@ namespace ChessMate_pro
             this.Hide();
             Login login = new Login();
             login.ShowDialog();
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace ChessMate_pro
+﻿using System;
+using System.Windows.Forms;
+
+namespace ChessMate_pro
 {
     partial class Login
     {
@@ -149,6 +152,7 @@
             this.PerformLayout();
 
         }
+
 
         #endregion
 
