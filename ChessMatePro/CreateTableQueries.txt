@@ -9,14 +9,14 @@
     [gamesplayed] INT NULL, 
 );
 
-CREATE TABLE [dbo].[GameTable]
-(
-	[userid] INT NOT NULL PRIMARY KEY, 
-    [eventname] NVARCHAR(MAX) NOT NULL, 
-    [date] DATE NOT NULL, 
-    [opponentname] NVARCHAR(MAX) NOT NULL, 
-    [result] NVARCHAR(50) NOT NULL, 
-    [pgnfileid] INT NOT NULL
+CREATE TABLE [dbo].[GameTable] (
+    [userid]       INT            NOT NULL,
+    [eventname]    NVARCHAR (MAX) NOT NULL,
+    [date]         DATE           NOT NULL,
+    [opponentname] NVARCHAR (MAX) NOT NULL,
+    [result]       NVARCHAR (50)  NULL,
+    [pgnfileid]    INT            NULL,
+    PRIMARY KEY CLUSTERED ([userid] ASC)
 );
 
 CREATE TABLE [dbo].[PGNFileTable]
