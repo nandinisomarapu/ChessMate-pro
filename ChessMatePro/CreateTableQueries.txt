@@ -1,0 +1,30 @@
+﻿CREATE TABLE [dbo].[UserTable] (
+    CONSTRAINT [PK_UserTable] PRIMARY KEY ([userid])
+    [userid] UNIQUEIDENTIFIER NOT NULL, 
+    [username] NCHAR (10)     NOT NULL,
+    [password] NVARCHAR (MAX) NOT NULL, 
+    [email] NVARCHAR(MAX) NULL, 
+    [wins] INT NULL, 
+    [losses] INT NULL, 
+    [gamesplayed] INT NULL, 
+);
+
+CREATE TABLE [dbo].[GameTable]
+(
+	[userid] INT NOT NULL PRIMARY KEY, 
+    [eventname] NVARCHAR(MAX) NOT NULL, 
+    [date] DATE NOT NULL, 
+    [opponentname] NVARCHAR(MAX) NOT NULL, 
+    [result] NVARCHAR(50) NOT NULL, 
+    [pgnfileid] INT NOT NULL
+);
+
+CREATE TABLE [dbo].[PGNFileTable]
+(
+	[pgnfileid] INT NOT NULL PRIMARY KEY, 
+    [moves] NVARCHAR(MAX) NOT NULL, 
+    [annotations] NVARCHAR(MAX) NULL, 
+    [comments] NVARCHAR(MAX) NULL, 
+    [exportstatus] NVARCHAR(50) NULL, 
+    CONSTRAINT [PK_Table] PRIMARY KEY ([pgnfileid])
+);

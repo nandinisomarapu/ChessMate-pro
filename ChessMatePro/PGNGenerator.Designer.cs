@@ -87,7 +87,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Location = new System.Drawing.Point(189, 346);
+            this.button1.Location = new System.Drawing.Point(189, 381);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(552, 50);
             this.button1.TabIndex = 5;
@@ -103,7 +103,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.48837F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(189, 142);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;

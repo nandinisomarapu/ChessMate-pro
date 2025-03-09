@@ -61,7 +61,7 @@ namespace ChessMate_pro
                     try
                     {
                         // Check if username exists
-                        cmd = new SqlCommand("SELECT * FROM LoginTable WHERE username=@username", cn);
+                        cmd = new SqlCommand("SELECT * FROM UserTable WHERE username=@username", cn);
                         cmd.Parameters.AddWithValue("@username", username.Text);
                         dr = cmd.ExecuteReader();
 
@@ -74,7 +74,7 @@ namespace ChessMate_pro
                         else
                         {
                             dr.Close();
-                            cmd = new SqlCommand("INSERT INTO LoginTable (username, password) VALUES (@username, @password)", cn);
+                            cmd = new SqlCommand("INSERT INTO UserTable (username, password) VALUES (@username, @password)", cn);
                             cmd.Parameters.AddWithValue("@username", username.Text);
                             cmd.Parameters.AddWithValue("@password", hashPassword(password.Text));
                             cmd.ExecuteNonQuery();
