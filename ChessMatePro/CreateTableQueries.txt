@@ -1,4 +1,5 @@
-﻿CREATE TABLE [dbo].[UserTable] (
+//Creation of the User Table
+CREATE TABLE [dbo].[UserTable] (
     [userid]      UNIQUEIDENTIFIER DEFAULT NEWID(),
     [username]    NCHAR (10)       NOT NULL,
     [password]    NVARCHAR (MAX)   NOT NULL,
@@ -9,6 +10,7 @@
     CONSTRAINT [PK_UserTable] PRIMARY KEY CLUSTERED ([userid] ASC)
 );
 
+//Creation of the Game Table
 CREATE TABLE [dbo].[GameTable] (
     [userid]       INT            NOT NULL,
     [eventname]    NVARCHAR (MAX) NOT NULL,
@@ -19,6 +21,7 @@ CREATE TABLE [dbo].[GameTable] (
     PRIMARY KEY CLUSTERED ([userid] ASC)
 );
 
+//Creation of the PGNFileTable
 CREATE TABLE [dbo].[PGNFileTable]
 (
 	[pgnfileid] INT NOT NULL PRIMARY KEY, 
