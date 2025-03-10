@@ -1,12 +1,12 @@
 ﻿CREATE TABLE [dbo].[UserTable] (
-    CONSTRAINT [PK_UserTable] PRIMARY KEY ([userid])
-    [userid] UNIQUEIDENTIFIER NOT NULL, 
-    [username] NCHAR (10)     NOT NULL,
-    [password] NVARCHAR (MAX) NOT NULL, 
-    [email] NVARCHAR(MAX) NULL, 
-    [wins] INT NULL, 
-    [losses] INT NULL, 
-    [gamesplayed] INT NULL, 
+    [userid]      UNIQUEIDENTIFIER DEFAULT NEWID(),
+    [username]    NCHAR (10)       NOT NULL,
+    [password]    NVARCHAR (MAX)   NOT NULL,
+    [email]       NVARCHAR (MAX)   NULL,
+    [wins]        INT              NULL,
+    [losses]      INT              NULL,
+    [gamesplayed] INT              NULL,
+    CONSTRAINT [PK_UserTable] PRIMARY KEY CLUSTERED ([userid] ASC)
 );
 
 CREATE TABLE [dbo].[GameTable] (

@@ -160,5 +160,10 @@ namespace ChessMate_pro
         {
 
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

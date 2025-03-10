@@ -33,12 +33,12 @@ namespace ChessMate_pro
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Username = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.password = new System.Windows.Forms.TextBox();
+            this.username = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -54,29 +54,29 @@ namespace ChessMate_pro
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // passwordLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(160, 289);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(10);
-            this.label1.Size = new System.Drawing.Size(73, 33);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Password";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.BackColor = System.Drawing.Color.LightSlateGray;
+            this.passwordLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.passwordLabel.Location = new System.Drawing.Point(160, 289);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.passwordLabel.Size = new System.Drawing.Size(73, 33);
+            this.passwordLabel.TabIndex = 17;
+            this.passwordLabel.Text = "Password";
             // 
-            // Username
+            // usernameLabel
             // 
-            this.Username.AutoSize = true;
-            this.Username.BackColor = System.Drawing.Color.LightSlateGray;
-            this.Username.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Username.Location = new System.Drawing.Point(160, 244);
-            this.Username.Name = "Username";
-            this.Username.Padding = new System.Windows.Forms.Padding(10);
-            this.Username.Size = new System.Drawing.Size(75, 33);
-            this.Username.TabIndex = 16;
-            this.Username.Text = "Username";
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.BackColor = System.Drawing.Color.LightSlateGray;
+            this.usernameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.usernameLabel.Location = new System.Drawing.Point(160, 244);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.usernameLabel.Size = new System.Drawing.Size(75, 33);
+            this.usernameLabel.TabIndex = 16;
+            this.usernameLabel.Text = "Username";
             // 
             // linkLabel1
             // 
@@ -90,35 +90,35 @@ namespace ChessMate_pro
             this.linkLabel1.Text = "Don\'t have an account? Sign Up Here!";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
-            // button1
+            // LoginButton
             // 
-            this.button1.BackColor = System.Drawing.Color.SlateGray;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(163, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(477, 35);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Log In";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.LoginButton.BackColor = System.Drawing.Color.SlateGray;
+            this.LoginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LoginButton.Location = new System.Drawing.Point(163, 350);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(477, 35);
+            this.LoginButton.TabIndex = 14;
+            this.LoginButton.Text = "Log In";
+            this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.loginButton_Clicked);
             // 
-            // textBox2
+            // password
             // 
-            this.textBox2.BackColor = System.Drawing.Color.LightSlateGray;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox2.Location = new System.Drawing.Point(259, 289);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(381, 30);
-            this.textBox2.TabIndex = 13;
+            this.password.BackColor = System.Drawing.Color.LightSlateGray;
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.password.Location = new System.Drawing.Point(259, 289);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(381, 30);
+            this.password.TabIndex = 13;
             // 
-            // textBox1
+            // username
             // 
-            this.textBox1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox1.Location = new System.Drawing.Point(259, 244);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(381, 30);
-            this.textBox1.TabIndex = 12;
+            this.username.BackColor = System.Drawing.Color.LightSlateGray;
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.username.Location = new System.Drawing.Point(259, 244);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(381, 30);
+            this.username.TabIndex = 12;
             // 
             // pictureBox2
             // 
@@ -136,12 +136,12 @@ namespace ChessMate_pro
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Username);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.username);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Login";
@@ -158,12 +158,12 @@ namespace ChessMate_pro
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label Username;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
