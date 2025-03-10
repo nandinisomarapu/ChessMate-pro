@@ -13,9 +13,7 @@ namespace ChessMate_pro
 {
     public partial class Login : Form
     {
-        SqlCommand cmd;
         SqlConnection cn;
-        SqlDataReader dr;
         public Login()
         {
             InitializeComponent();

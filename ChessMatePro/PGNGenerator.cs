@@ -17,6 +17,8 @@ namespace ChessMate_pro
         public PGNGenerator()
         {
             InitializeComponent();
+            game = new Game();
+            //Bind components/load game properties
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
