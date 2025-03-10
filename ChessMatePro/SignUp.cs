@@ -15,6 +15,7 @@ namespace ChessMate_pro
     public partial class SignUp : Form
     {
 
+         // SQL-related objects for database operations
         SqlCommand cmd;
         SqlConnection cn;
         SqlDataReader dr;
@@ -22,6 +23,7 @@ namespace ChessMate_pro
         public SignUp()
         {
             InitializeComponent();
+             // Set password character and max length for password fields
             password.PasswordChar = '•';
             confirmpassword.PasswordChar = '•';
             password.MaxLength = 50;
@@ -33,12 +35,14 @@ namespace ChessMate_pro
             try
             {
 
+                // Initialize and open database connection
                 cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nandini\source\repos\ChessMate-pro\ChessMatePro\Database1.mdf;Integrated Security=True");
                 cn.Open();
                 //MessageBox.Show("SqlConnection Opened successfully");
             }
             catch (Exception ex)
             {
+                // Display error message if database connection fails
                 MessageBox.Show("Database connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -46,16 +50,19 @@ namespace ChessMate_pro
         private void SignUpButton_Click(object sender, EventArgs e)
         {
 
+            // Check if database connection is valid
             if (cn == null || cn.State == ConnectionState.Closed)
             {
                 MessageBox.Show("Database connection is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
+            // Validate that all fields are filled
             if (!string.IsNullOrWhiteSpace(confirmpassword.Text) &&
                 !string.IsNullOrWhiteSpace(password.Text) &&
                 !string.IsNullOrWhiteSpace(username.Text))
             {
+                // Check if passwords match
                 if (password.Text == confirmpassword.Text)
                 {
                     try
@@ -74,6 +81,7 @@ namespace ChessMate_pro
                         else
                         {
                             dr.Close();
+                            // Insert new user into database
                             cmd = new SqlCommand("INSERT INTO UserTable (username, password) VALUES (@username, @password)", cn);
                             cmd.Parameters.AddWithValue("@username", username.Text);
                             cmd.Parameters.AddWithValue("@password", hashPassword(password.Text));
@@ -84,18 +92,21 @@ namespace ChessMate_pro
                     }
                     catch (Exception ex)
                     {
+                         // Display error message if database operation fails
                         MessageBox.Show("Database error: " + ex.Message, "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
+                    // Display error if passwords don't match
                     MessageBox.Show("Passwords are not the same", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
+                  // Display error if any field is empty
                 MessageBox.Show("Please fill out all of the fields", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
