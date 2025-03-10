@@ -13,10 +13,12 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            // Dispose of managed resources if the 'disposing' flag is true
             if (disposing && (components != null))
             {
                 components.Dispose();
             }
+             // Call the base class Dispose method
             base.Dispose(disposing);
         }
 
@@ -28,12 +30,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            // Initialize a ResourceManager for accessing resources in the current assembly
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
+            // Create a new Button control for PGN Generator
             this.PGNGeneratorButton = new System.Windows.Forms.Button();
 
 
             // PGNGeneratorButton
-            // 
+            // // Configure properties for the PGNGeneratorButton
             this.PGNGeneratorButton.BackColor = System.Drawing.Color.LightSlateGray;
             this.PGNGeneratorButton.Location = new System.Drawing.Point(73, 223);
             this.PGNGeneratorButton.Name = "PGNGeneratorButton";
