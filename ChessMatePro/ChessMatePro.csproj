@@ -7,7 +7,7 @@
     <ProjectGuid>{FB030ADC-FB5C-4E32-9D4F-F5EB08C050DA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ChessMate_pro</RootNamespace>
-    <AssemblyName>ChessMate pro</AssemblyName>
+    <AssemblyName>ChessMatePro</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
