@@ -105,9 +105,13 @@ namespace ChessMate_pro
 
         private string hashPassword(string inputPassword)
         {
+             // Create a new instance of the SHA256 hashing algorithm
             using (SHA256 sha256 = SHA256.Create())
             {
+                 // Convert the input password string to a byte array using UTF8 encoding
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputPassword));
+                // Convert the hashed byte array to a Base64 encoded string
+                // This provides a string representation of the hash that's safe for storage
                 return Convert.ToBase64String(bytes);
             }
         }
