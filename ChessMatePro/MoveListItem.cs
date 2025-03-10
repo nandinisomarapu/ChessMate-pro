@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChessMate_pro
 {
+    // Represents a single chess move for both players
     public class MoveListItem
     {
         public int MoveNumber { get; set; }
@@ -19,11 +20,14 @@ namespace ChessMate_pro
             BlackMove = blackMove;
         }
 
+        // Format move as a string
         public override string ToString()
         {
             return $"{MoveNumber}. {WhiteMove} {BlackMove}";
         }
     }
-
- 
 }
+
+
+
+
