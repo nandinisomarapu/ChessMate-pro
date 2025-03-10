@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game.cs" />
+    <Compile Include="MoveListItem.cs" />
     <Compile Include="ExportFile.cs">
       <SubType>Form</SubType>
     </Compile>

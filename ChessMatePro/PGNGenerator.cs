@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ChessMate_pro
 {
     public partial class PGNGenerator : Form
     {
+        private Game game;
         public PGNGenerator()
         {
             InitializeComponent();
@@ -54,5 +56,20 @@ namespace ChessMate_pro
         {
 
         }
+
+        public void SaveToFile(String filePath)
+        {
+            try
+            {
+                File.WriteAllText(filePath, this.game.GenerateGameAsString(), Encoding.UTF8);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Could not write game to file. Original error: " + ex.Message);
+            }
+        }
     }
 }
+
+

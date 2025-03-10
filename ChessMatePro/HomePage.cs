@@ -17,7 +17,7 @@ namespace ChessMate_pro
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PGNGeneratorButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             PGNGenerator pGNGenerator = new PGNGenerator();
@@ -36,6 +36,11 @@ namespace ChessMate_pro
             this.Hide();
             YourAccount yourAccount = new YourAccount();
             yourAccount.Show();
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

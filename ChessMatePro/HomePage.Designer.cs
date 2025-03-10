@@ -29,8 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
+            this.PGNGeneratorButton = new System.Windows.Forms.Button();
+
+
+            // PGNGeneratorButton
+            // 
+            this.PGNGeneratorButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.PGNGeneratorButton.Location = new System.Drawing.Point(73, 223);
+            this.PGNGeneratorButton.Name = "PGNGeneratorButton";
+            this.PGNGeneratorButton.Size = new System.Drawing.Size(163, 149);
+            this.PGNGeneratorButton.TabIndex = 4;
+            this.PGNGeneratorButton.Text = "PGN Generator";
+            this.PGNGeneratorButton.UseVisualStyleBackColor = false;
+            this.PGNGeneratorButton.Click += new System.EventHandler(this.PGNGeneratorButton_Click);
+
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,16 +61,7 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Location = new System.Drawing.Point(73, 223);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 149);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "PGN Generator";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+
             // 
             // button2
             // 
@@ -102,12 +107,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PGNGeneratorButton);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "HomePage";
             this.Text = "PGN Generator";
+            this.Load += new System.EventHandler(this.HomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -117,7 +123,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PGNGeneratorButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
