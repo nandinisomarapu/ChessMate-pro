@@ -82,6 +82,7 @@ namespace ChessMate_pro
                     // Check if username exists with the entered password that is stored internally as base64 sha256 hash for security best practice (avoid storing password as plain test)
                     string hashedPassword = hashPassword(password.Text);
 
+                    //Authenticate to make sure user entered credentials match with existing registered user
                     cmd = new SqlCommand("SELECT userid, username FROM UserTable WHERE username=@username AND password=@hashedPassword", cn);
                     cmd.Parameters.AddWithValue("@username", username.Text);
                     cmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
