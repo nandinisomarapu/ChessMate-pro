@@ -17,17 +17,5 @@ namespace ChessMate_pro
             InitializeComponent();
         }
 
-        public void SaveToFile(String filePath)
-        {
-            try
-            {
-                File.WriteAllText(filePath, GeneratePGN(), Encoding.UTF8);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: Could not write game to file. Original error: " + ex.Message);
-            }
-        }
     }
 }
