@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA20AAALACAYAAAAAB5pOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAA/7JJREFUeF7s/YnXdd921wXmkpubG7gkECA0hkaGDoZKYwkMRESQRmlCKwKB0BSt
+        vAAADrwBlbxySQAA/7JJREFUeF7s/YnXdd921wXmkpubG7gkECA0hkaGDoZKYwkMRESQRmlCKwKB0BSt
         REQI3WBo0dkgBRSFiBQWoKDSGJoQSEyAhJAGAgS8FCgilFiW1L/x1Jxrze9a3znXXM0+5zzv733f38kY
         n3z3d6199n7Oc/aa87v3eZ/f/ZRPfvKTL0+ePHny5MmTJ0+ePHny5O3kU+T/9P89efIe8hEieuEjwUc+
         8s0qgzfgj/nUu/jIRz5a6L6OfYrR50W/mXnR6j+tjol2X/mUj/TtNfV4dftjiT6QT2Uvx3demPmpfnrd
@@ -5309,6 +5309,21 @@
   </metadata>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
+  </metadata>
+  <metadata name="moveNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="whiteMove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="blackMove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="annotations.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="comments.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
