@@ -17,9 +17,13 @@ namespace ChessMate_pro
             InitializeComponent();
         }
 
+         // Event handler for PGN Generator button click
         private void PGNGeneratorButton_Click(object sender, EventArgs e)
         {
+            // Hide the current form
             this.Hide();
+
+            // Create and show the PGN Generator form
             PGNGenerator pGNGenerator = new PGNGenerator();
             pGNGenerator.Show();
         }

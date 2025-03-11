@@ -63,11 +63,13 @@ namespace ChessMate_pro
         {
             try
             {
+                // Convert game to string representation and write to the specified file using UTF-8 encoding
                 File.WriteAllText(filePath, this.game.GenerateGameAsString(), Encoding.UTF8);
 
             }
             catch (Exception ex)
             {
+                // Display error message if file writing fails, including the original exception message
                 MessageBox.Show("Error: Could not write game to file. Original error: " + ex.Message);
             }
         }

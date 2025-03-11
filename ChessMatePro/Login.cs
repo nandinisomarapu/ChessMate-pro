@@ -68,31 +68,36 @@ namespace ChessMate_pro
         private void loginButton_Clicked(object sender, EventArgs e)
         {
 
+             // Check if the database connection is initialized and open
             if (cn == null || cn.State == ConnectionState.Closed)
             {
                 MessageBox.Show("Database connection is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+             // Validate that both username and password fields are not empty
             if (!string.IsNullOrWhiteSpace(password.Text) &&
                 !string.IsNullOrWhiteSpace(username.Text))
             {
                 try
                 {
-                    // Check if username exists with the entered password that is stored internally as base64 sha256 hash for security best practice (avoid storing password as plain test)
+                    // Hash the entered password for secure comparison
                     string hashedPassword = hashPassword(password.Text);
 
-                    //Authenticate to make sure user entered credentials match with existing registered user
+                    // Prepare SQL command to authenticate user
                     cmd = new SqlCommand("SELECT userid, username FROM UserTable WHERE username=@username AND password=@hashedPassword", cn);
                     cmd.Parameters.AddWithValue("@username", username.Text);
                     cmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
 
+                    // Execute the query and get the result
                     dr = cmd.ExecuteReader();
 
+                   // Check if a matching user was found
                     if (dr.HasRows)
                     {
                         dr.Close();
 
+                         // Hide the current form and show the HomePage
                         this.Hide();
                         HomePage homePage = new HomePage();
                         homePage.ShowDialog();
@@ -100,12 +105,14 @@ namespace ChessMate_pro
                     else
                     {
                         dr.Close();
+                         // Display error message for invalid credentials
                         MessageBox.Show("Username and/or Password are incorrect.  Enter valid credentials to Login!",
                             "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    // Handle and display any database errors
                     MessageBox.Show("Database error: " + ex.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -113,6 +120,7 @@ namespace ChessMate_pro
             }
             else
             {
+                // Display error message if username or password field is empty
                 MessageBox.Show("Please fill out all of the fields", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
