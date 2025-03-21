@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 
 
@@ -15,6 +16,7 @@ namespace ChessMate_pro
 {
     public partial class GameManagement : Form
     {
+        private int currentUserID = 1; // Assuming current user ID is 1 
         public GameManagement()
         {
             InitializeComponent();
@@ -37,30 +39,33 @@ namespace ChessMate_pro
 
         private void FilterGames()
         {
-            using (var context = new ApplicationDbContext()) // Database Context
+            using (var context = new ApplicationDbContext()) // EF DbContext
             {
-                var query = context.Games.AsQueryable(); // Start LINQ query
+                var query = context.Games
+                    .Include(g => g.PGNFile) // Assuming navigation property exists
+                    .Where(g => g.UserID == currentUserID) // Only current user's games
+                    .AsQueryable();
 
-                // Apply Event Name filter if input is provided
+                // Filter: Event name
                 if (!string.IsNullOrWhiteSpace(txtEventName.Text))
                 {
                     query = query.Where(g => g.EventName.Contains(txtEventName.Text));
                 }
 
-                // Apply Opponent Name filter if input is provided
+                // Filter: Opponent name
                 if (!string.IsNullOrWhiteSpace(txtOpponentName.Text))
                 {
                     query = query.Where(g => g.OpponentName.Contains(txtOpponentName.Text));
                 }
 
-                // Apply Date Filter (if checkbox checked)
+                // Filter: Date
                 if (chkDateFilter.Checked)
                 {
                     DateTime selectedDate = dateTimeInput.Value.Date;
                     query = query.Where(g => g.Date.Date == selectedDate);
                 }
 
-                // Apply Win/Loss filter based on radio button selection
+                // Filter: Result
                 if (gameResultWon.Checked)
                 {
                     query = query.Where(g => g.Result == "1-0");
@@ -70,18 +75,34 @@ namespace ChessMate_pro
                     query = query.Where(g => g.Result == "0-1");
                 }
 
-                // Execute the query and convert results to a list
+                // Execute the query
                 var filteredGames = query.ToList();
 
-                // Display results in the ListBox
+                // Display games in PGN format in the ListBox
                 filteredGameListBox.Items.Clear();
+
                 foreach (var game in filteredGames)
                 {
-                    filteredGameListBox.Items.Add($"{game.EventName} - {game.OpponentName} ({game.Date.ToShortDateString()}) - {game.Result}");
-                }
+                    var pgnFile = game.PGNFile;
 
+                    string pgn = $"[Event \"{game.EventName}\"]\n" +
+                                 $"[Date \"{game.Date:yyyy.MM.dd}\"]\n" +
+                                 $"[White \"You\"]\n" +
+                                 $"[Black \"{game.OpponentName}\"]\n" +
+                                 $"[Result \"{game.Result}\"]\n" +
+                                 $"[Annotations \"{pgnFile?.Annotations}\"]\n" +
+                                 $"[Comments \"{pgnFile?.Comments}\"]\n\n" +
+                                 $"{pgnFile?.Moves}";
+
+                    filteredGameListBox.Items.Add(pgn);
+                }
             }
+      
         }
+    
+
+
+
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {

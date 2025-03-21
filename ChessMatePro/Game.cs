@@ -22,9 +22,17 @@ namespace ChessMate_pro
 
         public List<MoveListItem> MoveList { get; set; }
 
+        public int GameID { get; set; }
+    
+        public Guid PGNFileID { get; set; }
+        public PGNFile PGNFile { get; set; } // Navigation property
+
+        public int UserID { get; set; }
+
+
         public Game()
         {
-            // Initialize the MoveList as an empty list
+            // Initialize the MoorveList as an empty list
             MoveList = new List<MoveListItem>();
         }
 
@@ -54,5 +62,7 @@ namespace ChessMate_pro
             // Return the complete string representation of the game
             return sb.ToString();
         }
+
+
     }
 }
