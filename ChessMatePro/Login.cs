@@ -22,6 +22,7 @@ namespace ChessMate_pro
         public Login()
         {
             InitializeComponent();
+            password.PasswordChar = '•';
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -136,6 +137,11 @@ namespace ChessMate_pro
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputPassword));
                 return Convert.ToBase64String(bytes);
             }
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
 
         }
     }

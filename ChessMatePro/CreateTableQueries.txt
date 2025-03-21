@@ -17,17 +17,17 @@ CREATE TABLE [dbo].[GameTable] (
     [date]         DATE           NOT NULL,
     [opponentname] NVARCHAR (MAX) NOT NULL,
     [result]       NVARCHAR (50)  NULL,
-    [pgnfileid]    INT            NULL,
+    [pgnfileid]    UNIQUEIDENTIFIER NOT   NULL,
     PRIMARY KEY CLUSTERED ([userid] ASC)
 );
 
 //Creation of the PGNFileTable
 CREATE TABLE [dbo].[PGNFileTable]
 (
-	[pgnfileid] INT NOT NULL PRIMARY KEY, 
+	[pgnfileid] UNIQUEIDENTIFIER DEFAULT NEWID(),
     [moves] NVARCHAR(MAX) NOT NULL, 
     [annotations] NVARCHAR(MAX) NULL, 
     [comments] NVARCHAR(MAX) NULL, 
-    [exportstatus] NVARCHAR(50) NULL, 
-    CONSTRAINT [PK_Table] PRIMARY KEY ([pgnfileid])
-);
+    [exportstatus] NVARCHAR(50) NULL
+     CONSTRAINT [PK_PGNFileTable] PRIMARY KEY CLUSTERED ([pgnfileid] ASC)
+)

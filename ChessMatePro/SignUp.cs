@@ -180,5 +180,10 @@ namespace ChessMate_pro
         {
 
         }
+
+        private void password_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
