@@ -35,12 +35,7 @@ namespace ChessMate_pro
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            HomePage homePage = new HomePage();
-            homePage.ShowDialog();
-        }
+
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -96,11 +91,17 @@ namespace ChessMate_pro
                    // Check if a matching user was found
                     if (dr.HasRows)
                     {
+
+                        dr.Read();  
+
+                        Guid userID = dr.GetGuid(0);
+
                         dr.Close();
+
 
                          // Hide the current form and show the HomePage
                         this.Hide();
-                        HomePage homePage = new HomePage();
+                        HomePage homePage = new HomePage(userID);
                         homePage.ShowDialog();
                     }
                     else
@@ -113,9 +114,14 @@ namespace ChessMate_pro
                 }
                 catch (Exception ex)
                 {
+                    if (dr != null && !dr.IsClosed)
+                    {
+                        dr.Close();
+                    }
                     // Handle and display any database errors
                     MessageBox.Show("Database error: " + ex.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
 
             }

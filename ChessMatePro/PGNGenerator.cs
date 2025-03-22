@@ -15,11 +15,13 @@ namespace ChessMate_pro
     public partial class PGNGenerator : Form
     {
         private Game game;
-        public PGNGenerator()
+        private Guid currentUserID;
+        public PGNGenerator(Guid userID)
         {
             InitializeComponent();
             game = new Game();
             //Bind components/load game properties
+            currentUserID = userID;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -122,7 +124,7 @@ namespace ChessMate_pro
 
         }
 
-        private int currentUserID = 1; // Placeholder: Replace with actual logged-in user ID
+ 
 
         private void saveFileButton_Click(object sender, EventArgs e)
         {
@@ -174,8 +176,7 @@ namespace ChessMate_pro
                     insertPGN.Parameters.AddWithValue("@Comments", commentsText);
 
                     object pgnFileID = insertPGN.ExecuteScalar();
-                    Guid pgnFileId = Guid.NewGuid();
-                        //(Guid)pgnFileID;  
+                    Guid pgnFileId =  (Guid)pgnFileID;  
 
                     // Insert into Game table
                     SqlCommand insertGame = new SqlCommand(

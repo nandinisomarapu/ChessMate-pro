@@ -12,9 +12,11 @@ namespace ChessMate_pro
 {
     public partial class HomePage : Form
     {
-        public HomePage()
+        Guid currentUserID; 
+        public HomePage(Guid userID)
         {
             InitializeComponent();
+            currentUserID = userID; 
         }
 
          // Event handler for PGN Generator button click
@@ -24,7 +26,7 @@ namespace ChessMate_pro
             this.Hide();
 
             // Create and show the PGN Generator form
-            PGNGenerator pGNGenerator = new PGNGenerator();
+            PGNGenerator pGNGenerator = new PGNGenerator(currentUserID);
             pGNGenerator.Show();
         }
 
