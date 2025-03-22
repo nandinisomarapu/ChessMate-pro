@@ -32,10 +32,9 @@
             this.filterButton = new System.Windows.Forms.Button();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.txtOpponentName = new System.Windows.Forms.TextBox();
-            this.dateTimeInput = new System.Windows.Forms.DateTimePicker();
+            this.datePickerFilter = new System.Windows.Forms.DateTimePicker();
             this.gameResultLost = new System.Windows.Forms.RadioButton();
             this.gameResultWon = new System.Windows.Forms.RadioButton();
-            this.filteredGameListBox = new System.Windows.Forms.ListBox();
             this.chkDateFilter = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,12 +44,14 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.GameInformationLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.eventNameInput = new System.Windows.Forms.TextBox();
-            this.opponentNameInput = new System.Windows.Forms.TextBox();
+            this.txtEventNameFilter = new System.Windows.Forms.TextBox();
+            this.txtOpponentFilter = new System.Windows.Forms.TextBox();
             this.dateLabel = new System.Windows.Forms.Label();
             this.gameResultLabel = new System.Windows.Forms.Label();
             this.gameInformationBacking = new System.Windows.Forms.Label();
             this.gameManagementBackground = new System.Windows.Forms.PictureBox();
+            this.filteredGameListBox = new System.Windows.Forms.ListBox();
+            this.selectedPGNDisplay = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameManagementBackground)).BeginInit();
             this.SuspendLayout();
@@ -90,12 +91,12 @@
             this.txtOpponentName.TabIndex = 2;
             this.txtOpponentName.Text = "Opponent Name";
             // 
-            // dateTimeInput
+            // datePickerFilter
             // 
-            this.dateTimeInput.Location = new System.Drawing.Point(222, 252);
-            this.dateTimeInput.Name = "dateTimeInput";
-            this.dateTimeInput.Size = new System.Drawing.Size(173, 20);
-            this.dateTimeInput.TabIndex = 3;
+            this.datePickerFilter.Location = new System.Drawing.Point(222, 252);
+            this.datePickerFilter.Name = "datePickerFilter";
+            this.datePickerFilter.Size = new System.Drawing.Size(173, 20);
+            this.datePickerFilter.TabIndex = 3;
             // 
             // gameResultLost
             // 
@@ -122,15 +123,6 @@
             this.gameResultWon.TabStop = true;
             this.gameResultWon.Text = "1 - 0";
             this.gameResultWon.UseVisualStyleBackColor = false;
-            // 
-            // filteredGameListBox
-            // 
-            this.filteredGameListBox.FormattingEnabled = true;
-            this.filteredGameListBox.Location = new System.Drawing.Point(445, 136);
-            this.filteredGameListBox.Name = "filteredGameListBox";
-            this.filteredGameListBox.Size = new System.Drawing.Size(103, 95);
-            this.filteredGameListBox.TabIndex = 6;
-            this.filteredGameListBox.SelectedIndexChanged += new System.EventHandler(this.filteredGameListBox_SelectedIndexChanged);
             // 
             // chkDateFilter
             // 
@@ -240,19 +232,19 @@
             this.label2.TabIndex = 16;
             this.label2.Text = " ";
             // 
-            // eventNameInput
+            // txtEventNameFilter
             // 
-            this.eventNameInput.Location = new System.Drawing.Point(195, 155);
-            this.eventNameInput.Name = "eventNameInput";
-            this.eventNameInput.Size = new System.Drawing.Size(199, 20);
-            this.eventNameInput.TabIndex = 17;
+            this.txtEventNameFilter.Location = new System.Drawing.Point(195, 155);
+            this.txtEventNameFilter.Name = "txtEventNameFilter";
+            this.txtEventNameFilter.Size = new System.Drawing.Size(199, 20);
+            this.txtEventNameFilter.TabIndex = 17;
             // 
-            // opponentNameInput
+            // txtOpponentFilter
             // 
-            this.opponentNameInput.Location = new System.Drawing.Point(195, 202);
-            this.opponentNameInput.Name = "opponentNameInput";
-            this.opponentNameInput.Size = new System.Drawing.Size(200, 20);
-            this.opponentNameInput.TabIndex = 18;
+            this.txtOpponentFilter.Location = new System.Drawing.Point(195, 202);
+            this.txtOpponentFilter.Name = "txtOpponentFilter";
+            this.txtOpponentFilter.Size = new System.Drawing.Size(200, 20);
+            this.txtOpponentFilter.TabIndex = 18;
             // 
             // dateLabel
             // 
@@ -298,16 +290,35 @@
             this.gameManagementBackground.TabIndex = 22;
             this.gameManagementBackground.TabStop = false;
             // 
+            // filteredGameListBox
+            // 
+            this.filteredGameListBox.FormattingEnabled = true;
+            this.filteredGameListBox.Location = new System.Drawing.Point(445, 127);
+            this.filteredGameListBox.Name = "filteredGameListBox";
+            this.filteredGameListBox.Size = new System.Drawing.Size(120, 95);
+            this.filteredGameListBox.TabIndex = 23;
+            this.filteredGameListBox.SelectedIndexChanged += new System.EventHandler(this.filteredGameListBox_SelectedIndexChanged_1);
+            // 
+            // selectedPGNDisplay
+            // 
+            this.selectedPGNDisplay.Location = new System.Drawing.Point(572, 127);
+            this.selectedPGNDisplay.Name = "selectedPGNDisplay";
+            this.selectedPGNDisplay.Size = new System.Drawing.Size(100, 96);
+            this.selectedPGNDisplay.TabIndex = 24;
+            this.selectedPGNDisplay.Text = "";
+            // 
             // GameManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.selectedPGNDisplay);
+            this.Controls.Add(this.filteredGameListBox);
             this.Controls.Add(this.gameResultLabel);
             this.Controls.Add(this.dateLabel);
-            this.Controls.Add(this.opponentNameInput);
-            this.Controls.Add(this.eventNameInput);
+            this.Controls.Add(this.txtOpponentFilter);
+            this.Controls.Add(this.txtEventNameFilter);
             this.Controls.Add(this.GameInformationLabel);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
@@ -316,10 +327,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chkDateFilter);
-            this.Controls.Add(this.filteredGameListBox);
             this.Controls.Add(this.gameResultWon);
             this.Controls.Add(this.gameResultLost);
-            this.Controls.Add(this.dateTimeInput);
+            this.Controls.Add(this.datePickerFilter);
             this.Controls.Add(this.txtOpponentName);
             this.Controls.Add(this.txtEventName);
             this.Controls.Add(this.filterButton);
@@ -341,10 +351,9 @@
         private System.Windows.Forms.Button filterButton;
         private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.TextBox txtOpponentName;
-        private System.Windows.Forms.DateTimePicker dateTimeInput;
+        private System.Windows.Forms.DateTimePicker datePickerFilter;
         private System.Windows.Forms.RadioButton gameResultLost;
         private System.Windows.Forms.RadioButton gameResultWon;
-        private System.Windows.Forms.ListBox filteredGameListBox;
         private System.Windows.Forms.CheckBox chkDateFilter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
@@ -354,11 +363,13 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label GameInformationLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox eventNameInput;
-        private System.Windows.Forms.TextBox opponentNameInput;
+        private System.Windows.Forms.TextBox txtEventNameFilter;
+        private System.Windows.Forms.TextBox txtOpponentFilter;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label gameResultLabel;
         private System.Windows.Forms.Label gameInformationBacking;
         private System.Windows.Forms.PictureBox gameManagementBackground;
+        private System.Windows.Forms.ListBox filteredGameListBox;
+        private System.Windows.Forms.RichTextBox selectedPGNDisplay;
     }
 }

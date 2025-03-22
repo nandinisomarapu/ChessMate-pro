@@ -34,7 +34,7 @@
             this.eventNameInput = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.opponentNameInput = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exportFileButton = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -100,17 +100,17 @@
             this.opponentNameInput.Size = new System.Drawing.Size(431, 20);
             this.opponentNameInput.TabIndex = 4;
             // 
-            // button1
+            // exportFileButton
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(476, 426);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(271, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "EXPORT FILE";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.exportFileButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.exportFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.exportFileButton.Location = new System.Drawing.Point(476, 426);
+            this.exportFileButton.Name = "exportFileButton";
+            this.exportFileButton.Size = new System.Drawing.Size(271, 35);
+            this.exportFileButton.TabIndex = 5;
+            this.exportFileButton.Text = "EXPORT FILE";
+            this.exportFileButton.UseVisualStyleBackColor = false;
+            this.exportFileButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // statusStrip1
             // 
@@ -318,7 +318,7 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.exportFileButton);
             this.Controls.Add(this.opponentNameInput);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.eventNameInput);
@@ -343,7 +343,7 @@
         private System.Windows.Forms.TextBox eventNameInput;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox opponentNameInput;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exportFileButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;

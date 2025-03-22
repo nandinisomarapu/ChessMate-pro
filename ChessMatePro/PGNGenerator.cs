@@ -45,10 +45,47 @@ namespace ChessMate_pro
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ExportFile exportFile = new ExportFile();
-            exportFile.ShowDialog();
+            // Get basic input from the user
+            string eventName = eventNameInput.Text.Trim();
+            DateTime gameDate = dateTimePicker1.Value.Date;
+            string opponentName = opponentNameInput.Text.Trim();
+
+            // Determine game result
+            string result = radioButtonWin.Checked ? "1-0" :
+                            radioButtonLose.Checked ? "0-1" : "*";
+
+            // Build list of moves from the moveTable (DataGridView)
+            List<string> moveList = new List<string>();
+            foreach (DataGridViewRow row in moveTable.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string moveNum = row.Cells[0].Value?.ToString() ?? "";
+                    string whiteMove = row.Cells[1].Value?.ToString() ?? "";
+                    string blackMove = row.Cells[2].Value?.ToString() ?? "";
+                    string annotation = row.Cells[3].Value?.ToString() ?? "";
+                    string comment = row.Cells[4].Value?.ToString() ?? "";
+
+                    // Format PGN-style move: 1. e4 e5 {Annotation} ; Comment
+                    string formattedMove = $"{moveNum}. {whiteMove} {blackMove}";
+
+                    if (!string.IsNullOrWhiteSpace(annotation))
+                        formattedMove += $" {{{annotation}}}";
+
+                    if (!string.IsNullOrWhiteSpace(comment))
+                        formattedMove += $" ; {comment}";
+
+                    moveList.Add(formattedMove);
+                }
+            }
+
+            // Open ExportFile form and pass all the data
+            ExportFile exportForm = new ExportFile(eventName, gameDate, opponentName, result, moveList);
+            exportForm.Show();
         }
+
+
+    
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
