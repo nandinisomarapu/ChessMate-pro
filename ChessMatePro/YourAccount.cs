@@ -12,9 +12,11 @@ namespace ChessMate_pro
 {
     public partial class YourAccount : Form
     {
-        public YourAccount()
+        private Guid currentUserId; 
+        public YourAccount(Guid UserID)
         {
             InitializeComponent();
+            currentUserId = UserID;
         }
     }
 }

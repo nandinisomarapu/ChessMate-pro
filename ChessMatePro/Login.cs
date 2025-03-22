@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessMate_pro.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,7 +40,11 @@ namespace ChessMate_pro
 
         private void Login_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nandini\source\repos\ChessMate-pro\ChessMatePro\Database1.mdf;Integrated Security=True");
+            //cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nandini\source\repos\ChessMate-pro\ChessMatePro\Database1.mdf;Integrated Security=True");
+            using(var context = new ApplicationDbContext())
+            {
+                cn = new SqlConnection(context.Database.Connection.ConnectionString);
+            }
             cn.Open();
         }
 
@@ -81,7 +86,7 @@ namespace ChessMate_pro
                     string hashedPassword = hashPassword(password.Text);
 
                     // Prepare SQL command to authenticate user
-                    cmd = new SqlCommand("SELECT userid, username FROM UserTable WHERE username=@username AND password=@hashedPassword", cn);
+                    cmd = new SqlCommand("SELECT userid, username FROM Users WHERE username=@username AND password=@hashedPassword", cn);
                     cmd.Parameters.AddWithValue("@username", username.Text);
                     cmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
 
@@ -94,12 +99,13 @@ namespace ChessMate_pro
 
                         dr.Read();  
 
+
                         Guid userID = dr.GetGuid(0);
 
                         dr.Close();
 
-
-                         // Hide the current form and show the HomePage
+                        //MessageBox.Show("Current UserID is: " + userID.ToString(), "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);   
+                        // Hide the current form and show the HomePage
                         this.Hide();
                         HomePage homePage = new HomePage(userID);
                         homePage.ShowDialog();

@@ -82,9 +82,11 @@ namespace ChessMate_pro
             }
 
             // Open ExportFile form and pass all the data
-            ExportFile exportForm = new ExportFile(eventName, gameDate, opponentName, result, moveList);
-            exportForm.Show();
+            this.Hide();
+            ExportFile exportFile = new ExportFile(currentUserID, eventName, gameDate, opponentName, result, moveList);
+            exportFile.ShowDialog();
         }
+     
 
 
     
@@ -165,9 +167,9 @@ namespace ChessMate_pro
 
                 try
                 {
-                    // Insert into PGNFileTable
+                    // Insert into PGNFiles
                     SqlCommand insertPGN = new SqlCommand(
-                        @"INSERT INTO PGNFileTable (moves, annotations, comments, exportstatus)
+                        @"INSERT INTO PGNFiles (moves, annotations, comments, exportstatus)
                   OUTPUT INSERTED.PGNFileID
                   VALUES (@Moves, @Annotations, @Comments, 0)", conn, transaction);
 
@@ -175,19 +177,22 @@ namespace ChessMate_pro
                     insertPGN.Parameters.AddWithValue("@Annotations", annotationsText);
                     insertPGN.Parameters.AddWithValue("@Comments", commentsText);
 
-                    object pgnFileID = insertPGN.ExecuteScalar();
-                    Guid pgnFileId =  (Guid)pgnFileID;  
+                   Guid pgnFileId = (Guid)insertPGN.ExecuteScalar();
 
                     // Insert into Game table
                     SqlCommand insertGame = new SqlCommand(
-                        @"INSERT INTO GameTable (eventname, date, opponentname, result, pgnfileid, userid)
+                        @"INSERT INTO Games (eventname, date, opponentname, result, pgnfileid, userid)
                   VALUES (@EventName, @Date, @OpponentName, @Result, @PGNFileID, @UserID)", conn, transaction);
 
                     insertGame.Parameters.AddWithValue("@EventName", eventName);
                     insertGame.Parameters.AddWithValue("@Date", gameDate);
                     insertGame.Parameters.AddWithValue("@OpponentName", opponentName);
                     insertGame.Parameters.AddWithValue("@Result", result);
-                    insertGame.Parameters.AddWithValue("@PGNFileID", pgnFileID);
+                    insertGame.Parameters.AddWithValue("@PGNFileID", pgnFileId);
+
+                    //MessageBox.Show("Saving with UserID: " + currentUserID.ToString() + " Type: " + currentUserID.GetType());
+                    //MessageBox.Show("Saving with PGNFileID: " + pgnFileId.ToString() + " Type: " + pgnFileId.GetType());
+
                     insertGame.Parameters.AddWithValue("@UserID", currentUserID);
 
                     insertGame.ExecuteNonQuery();
@@ -198,11 +203,26 @@ namespace ChessMate_pro
                 catch (Exception ex)
                 {
                     transaction.Rollback();
-                    MessageBox.Show("Error saving game: " + ex.Message);
+                    MessageBox.Show("Error saving game: " + ex.Message +
+                     (ex.InnerException != null ? "\nInner: " + ex.InnerException.Message : ""));
+
+
                 }
             }
         }
 
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameManagement gameManagement = new GameManagement(currentUserID);
+            gameManagement.ShowDialog();
+        }
+
+        private void menuPGNButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

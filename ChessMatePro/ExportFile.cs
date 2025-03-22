@@ -13,9 +13,12 @@ namespace ChessMate_pro
 {
     public partial class ExportFile : Form
     {
-        public ExportFile(string eventName, DateTime date, string opponentName, string result, List<string> moves)
+        private Guid currentUserID;
+        public ExportFile(Guid userID, string eventName, DateTime date, string opponentName, string result, List<string> moves)
         {
             InitializeComponent();
+            currentUserID = userID;
+
 
             string allMoves = string.Join(" ", moves);
 
@@ -62,6 +65,20 @@ namespace ChessMate_pro
 
 
 
+        }
+
+        private void menuPGNButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PGNGenerator pGNGenerator = new PGNGenerator(currentUserID);
+            pGNGenerator.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameManagement gameManagement = new GameManagement(currentUserID);
+            gameManagement.ShowDialog();
         }
     }
 }

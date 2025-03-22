@@ -33,14 +33,14 @@ namespace ChessMate_pro
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            GameManagement gameManagement = new GameManagement();
+            GameManagement gameManagement = new GameManagement(currentUserID);
             gameManagement.Show();  
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            YourAccount yourAccount = new YourAccount();
+            YourAccount yourAccount = new YourAccount(currentUserID);
             yourAccount.Show();
         }
 

@@ -1,37 +1,42 @@
-//Creation of the User Table
-CREATE TABLE [dbo].[UserTable] (
-    [userid]      UNIQUEIDENTIFIER DEFAULT NEWID(),
+drop table PGNFiles;    
+drop table Games;   
+drop table Users;
+
+CREATE TABLE [dbo].[Users] (
+    [userid]      UNIQUEIDENTIFIER NOt NULL DEFAULT NEWID(),
     [username]    NCHAR (10)       NOT NULL,
     [password]    NVARCHAR (MAX)   NOT NULL,
     [email]       NVARCHAR (MAX)   NULL,
     [wins]        INT              NULL,
     [losses]      INT              NULL,
     [gamesplayed] INT              NULL,
-    CONSTRAINT [PK_UserTable] PRIMARY KEY CLUSTERED ([userid] ASC)
+    CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([userid] ASC)
 );
 
-//Creation of the Game Table
-REATE TABLE [dbo].[GameTable] (
-    [gameid]       UNIQUEIDENTIFIER DEFAULT NEWID(), -- new primary key
-    [userid]       UNIQUEIDENTIFIER NOT NULL,        -- foreign key to UserTable
+
+CREATE TABLE [dbo].[Games] (
+    [gameid]       UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(), -- use NEWID() here
+    [userid]       UNIQUEIDENTIFIER NOT NULL,
     [eventname]    NVARCHAR (MAX)   NOT NULL,
     [date]         DATE             NOT NULL,
     [opponentname] NVARCHAR (MAX)   NOT NULL,
+    [whiteplayer]  NVARCHAR (MAX)   NULL,
+    [blackplayer]  NVARCHAR (MAX)   NULL,
     [result]       NVARCHAR (50)    NULL,
     [pgnfileid]    UNIQUEIDENTIFIER NOT NULL,
-    CONSTRAINT [PK_GameTable] PRIMARY KEY CLUSTERED ([gameid] ASC),
-    CONSTRAINT [FK_Game_User] FOREIGN KEY ([userid]) REFERENCES [UserTable]([userid])
+    CONSTRAINT [PK_Games] PRIMARY KEY CLUSTERED ([gameid] ASC),
+    CONSTRAINT [FK_Game_User] FOREIGN KEY ([userid]) REFERENCES [Users]([userid])
 );
 
 
 
-//Creation of the PGNFileTable
-CREATE TABLE [dbo].[PGNFileTable]
+
+CREATE TABLE [dbo].[PGNFiles]
 (
-	[pgnfileid] UNIQUEIDENTIFIER DEFAULT NEWID(),
+	[pgnfileid] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
     [moves] NVARCHAR(MAX) NOT NULL, 
     [annotations] NVARCHAR(MAX) NULL, 
     [comments] NVARCHAR(MAX) NULL, 
     [exportstatus] NVARCHAR(50) NULL
-     CONSTRAINT [PK_PGNFileTable] PRIMARY KEY CLUSTERED ([pgnfileid] ASC)
+     CONSTRAINT [PK_PGNFiles] PRIMARY KEY CLUSTERED ([pgnfileid] ASC)
 )

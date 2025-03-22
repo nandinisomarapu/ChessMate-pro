@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using System.Diagnostics;
+using ChessMate_pro;
 
 
 
@@ -16,10 +18,11 @@ namespace ChessMate_pro
 {
     public partial class GameManagement : Form
     {
-        private int currentUserID = 1; // Assuming current user ID is 1 
-        public GameManagement()
+        private Guid currentUserID;
+        public GameManagement(Guid userID)
         {
             InitializeComponent();
+            currentUserID = userID; 
         }
 
         private void GameManagement_Load(object sender, EventArgs e)
@@ -34,49 +37,53 @@ namespace ChessMate_pro
 
         private void filterButton_Click(object sender, EventArgs e)
         {
+    
             using (var context = new ApplicationDbContext())
             {
                 var query = context.Games
                     .Include(g => g.PGNFile)
-                    .Where(g => g.UserID == currentUserID)
+                    //.Where(g => g.UserID == currentUserID)
                     .AsQueryable();
 
-                // Filter: Event Name
                 if (!string.IsNullOrWhiteSpace(txtEventNameFilter.Text))
                 {
                     string eventFilter = txtEventNameFilter.Text.Trim();
+
+                    //MessageBox.Show("eventFilter =" + eventFilter);
+
                     query = query.Where(g => g.EventName.Contains(eventFilter));
                 }
 
-                // Filter: Opponent Name
                 if (!string.IsNullOrWhiteSpace(txtOpponentFilter.Text))
                 {
                     string opponentFilter = txtOpponentFilter.Text.Trim();
                     query = query.Where(g => g.OpponentName.Contains(opponentFilter));
                 }
 
-                // Filter: Date (if checked)
                 if (datePickerFilter.Checked)
                 {
                     DateTime selectedDate = datePickerFilter.Value.Date;
-                    query = query.Where(g => g.Date == selectedDate);
+                    query = query.Where(g => DbFunctions.TruncateTime(g.Date) == selectedDate);
                 }
-
-                // Filter: Result (based on radio buttons)
 
                 if (gameResultWon.Checked)
                 {
-                    query = query.Where(g => g.Result == "1-0");
+                    query = query.Where(g => g.Result == "1-0" || g.Result.ToLower() == "win");
                 }
                 else if (gameResultLost.Checked)
                 {
-                    query = query.Where(g => g.Result == "0-1");
+                    query = query.Where(g => g.Result == "0-1" || g.Result.ToLower() == "lose");
                 }
 
-                    // Execute query
-                    var filteredGames = query.ToList();
+                string sql = ((System.Data.Entity.Infrastructure.DbQuery<Game>)query).ToString();
+                Debug.WriteLine(sql);
+                //MessageBox.Show(sql);
+                
 
-                // Clear previous results
+                var filteredGames = query.ToList();
+
+                //MessageBox.Show("filteredGames.Count.ToString()=" + filteredGames.Count.ToString());
+
                 filteredGameListBox.Items.Clear();
                 selectedPGNDisplay.Clear();
 
@@ -86,7 +93,6 @@ namespace ChessMate_pro
                     return;
                 }
 
-                // Show matches in ListBox
                 foreach (var game in filteredGames)
                 {
                     string display = $"{game.EventName} vs {game.OpponentName} - {game.Date.ToShortDateString()} - {game.Result}";
@@ -96,9 +102,11 @@ namespace ChessMate_pro
         }
 
 
-        
 
-        
+
+
+
+
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
@@ -150,8 +158,28 @@ namespace ChessMate_pro
             }
         }
 
+        private void selectedPGNDisplay_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void txtEventNameFilter_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PGNGenerator pGNGenerator = new PGNGenerator(currentUserID);
+            pGNGenerator.ShowDialog();
+        }
+
+     
     }
 }
-

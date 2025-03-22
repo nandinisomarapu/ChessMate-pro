@@ -39,9 +39,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.FilterGamesLabel = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.GameInformationLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEventNameFilter = new System.Windows.Forms.TextBox();
@@ -52,8 +49,18 @@
             this.gameManagementBackground = new System.Windows.Forms.PictureBox();
             this.filteredGameListBox = new System.Windows.Forms.ListBox();
             this.selectedPGNDisplay = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.menuPGNButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameManagementBackground)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // filterButton
@@ -170,44 +177,6 @@
             this.FilterGamesLabel.Text = "Filter Games";
             this.FilterGamesLabel.Click += new System.EventHandler(this.label2_Click);
             // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Your Account"});
-            this.comboBox3.Location = new System.Drawing.Point(25, 310);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 14;
-            this.comboBox3.Text = "Your Account";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Game Management",
-            "Schedule New Game",
-            "View Upcoming Games"});
-            this.comboBox2.Location = new System.Drawing.Point(25, 241);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 13;
-            this.comboBox2.Text = "Game Management";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "PGN Genertor",
-            "Export File"});
-            this.comboBox1.Location = new System.Drawing.Point(25, 174);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 12;
-            this.comboBox1.Text = "PGN Generator";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // GameInformationLabel
             // 
             this.GameInformationLabel.AutoSize = true;
@@ -238,6 +207,7 @@
             this.txtEventNameFilter.Name = "txtEventNameFilter";
             this.txtEventNameFilter.Size = new System.Drawing.Size(199, 20);
             this.txtEventNameFilter.TabIndex = 17;
+            this.txtEventNameFilter.TextChanged += new System.EventHandler(this.txtEventNameFilter_TextChanged);
             // 
             // txtOpponentFilter
             // 
@@ -283,7 +253,7 @@
             // gameManagementBackground
             // 
             this.gameManagementBackground.Image = ((System.Drawing.Image)(resources.GetObject("gameManagementBackground.Image")));
-            this.gameManagementBackground.Location = new System.Drawing.Point(-2, 0);
+            this.gameManagementBackground.Location = new System.Drawing.Point(-2, -1);
             this.gameManagementBackground.Name = "gameManagementBackground";
             this.gameManagementBackground.Size = new System.Drawing.Size(804, 450);
             this.gameManagementBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -295,7 +265,7 @@
             this.filteredGameListBox.FormattingEnabled = true;
             this.filteredGameListBox.Location = new System.Drawing.Point(445, 127);
             this.filteredGameListBox.Name = "filteredGameListBox";
-            this.filteredGameListBox.Size = new System.Drawing.Size(120, 95);
+            this.filteredGameListBox.Size = new System.Drawing.Size(120, 251);
             this.filteredGameListBox.TabIndex = 23;
             this.filteredGameListBox.SelectedIndexChanged += new System.EventHandler(this.filteredGameListBox_SelectedIndexChanged_1);
             // 
@@ -303,9 +273,106 @@
             // 
             this.selectedPGNDisplay.Location = new System.Drawing.Point(572, 127);
             this.selectedPGNDisplay.Name = "selectedPGNDisplay";
-            this.selectedPGNDisplay.Size = new System.Drawing.Size(100, 96);
+            this.selectedPGNDisplay.Size = new System.Drawing.Size(180, 251);
             this.selectedPGNDisplay.TabIndex = 24;
             this.selectedPGNDisplay.Text = "";
+            this.selectedPGNDisplay.TextChanged += new System.EventHandler(this.selectedPGNDisplay_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.menuPGNButton);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(25, 155);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(123, 235);
+            this.panel1.TabIndex = 25;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(0, 203);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(120, 23);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Your Account";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 139);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(120, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Upcoming Games";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(0, 110);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(120, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Schedule Games";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 81);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "View Games";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // menuPGNButton
+            // 
+            this.menuPGNButton.Location = new System.Drawing.Point(4, 24);
+            this.menuPGNButton.Name = "menuPGNButton";
+            this.menuPGNButton.Size = new System.Drawing.Size(116, 23);
+            this.menuPGNButton.TabIndex = 3;
+            this.menuPGNButton.Text = "PGN Generator";
+            this.menuPGNButton.UseVisualStyleBackColor = true;
+            this.menuPGNButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Location = new System.Drawing.Point(0, 184);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Account";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(1, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Game Management";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(3, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Game Tools";
             // 
             // GameManagement
             // 
@@ -313,6 +380,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.selectedPGNDisplay);
             this.Controls.Add(this.filteredGameListBox);
             this.Controls.Add(this.gameResultLabel);
@@ -320,9 +388,6 @@
             this.Controls.Add(this.txtOpponentFilter);
             this.Controls.Add(this.txtEventNameFilter);
             this.Controls.Add(this.GameInformationLabel);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.FilterGamesLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -341,6 +406,8 @@
             this.Load += new System.EventHandler(this.GameManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameManagementBackground)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,9 +425,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label FilterGamesLabel;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label GameInformationLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEventNameFilter;
@@ -371,5 +435,14 @@
         private System.Windows.Forms.PictureBox gameManagementBackground;
         private System.Windows.Forms.ListBox filteredGameListBox;
         private System.Windows.Forms.RichTextBox selectedPGNDisplay;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button menuPGNButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }

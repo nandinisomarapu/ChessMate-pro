@@ -13,6 +13,9 @@ namespace ChessMate_pro
         public string WhiteMove { get; set; }
         public string BlackMove { get; set; }
 
+        public string Annotation { get; set; }
+        public string Comment { get; set; } 
+
         public MoveListItem(int moveNumber, string whiteMove, string blackMove)
         {
             MoveNumber = moveNumber;
