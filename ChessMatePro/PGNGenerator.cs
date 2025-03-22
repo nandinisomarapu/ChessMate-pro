@@ -174,7 +174,8 @@ namespace ChessMate_pro
                     insertPGN.Parameters.AddWithValue("@Comments", commentsText);
 
                     object pgnFileID = insertPGN.ExecuteScalar();
-                    Guid pgnFileId = (Guid)pgnFileID;   
+                    Guid pgnFileId = Guid.NewGuid();
+                        //(Guid)pgnFileID;  
 
                     // Insert into Game table
                     SqlCommand insertGame = new SqlCommand(

@@ -11,15 +11,19 @@ CREATE TABLE [dbo].[UserTable] (
 );
 
 //Creation of the Game Table
-CREATE TABLE [dbo].[GameTable] (
-    [userid]       INT            NOT NULL,
-    [eventname]    NVARCHAR (MAX) NOT NULL,
-    [date]         DATE           NOT NULL,
-    [opponentname] NVARCHAR (MAX) NOT NULL,
-    [result]       NVARCHAR (50)  NULL,
-    [pgnfileid]    UNIQUEIDENTIFIER NOT   NULL,
-    PRIMARY KEY CLUSTERED ([userid] ASC)
+REATE TABLE [dbo].[GameTable] (
+    [gameid]       UNIQUEIDENTIFIER DEFAULT NEWID(), -- new primary key
+    [userid]       UNIQUEIDENTIFIER NOT NULL,        -- foreign key to UserTable
+    [eventname]    NVARCHAR (MAX)   NOT NULL,
+    [date]         DATE             NOT NULL,
+    [opponentname] NVARCHAR (MAX)   NOT NULL,
+    [result]       NVARCHAR (50)    NULL,
+    [pgnfileid]    UNIQUEIDENTIFIER NOT NULL,
+    CONSTRAINT [PK_GameTable] PRIMARY KEY CLUSTERED ([gameid] ASC),
+    CONSTRAINT [FK_Game_User] FOREIGN KEY ([userid]) REFERENCES [UserTable]([userid])
 );
+
+
 
 //Creation of the PGNFileTable
 CREATE TABLE [dbo].[PGNFileTable]
