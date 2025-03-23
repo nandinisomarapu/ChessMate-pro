@@ -91,5 +91,38 @@ namespace ChessMate_pro
 
             selectedGameDataBox.Text = pgn;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameManagement gameManagement = new GameManagement(currentUserID);
+            gameManagement.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ScheduleGames scheduleGames = new ScheduleGames(currentUserID);
+            scheduleGames.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            YourAccount yourAccount = new YourAccount(currentUserID);
+            yourAccount.Show();
+        }
+
+        private void menuPGNButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PGNGenerator pgnGenerator = new PGNGenerator(null, currentUserID);
+            pgnGenerator.ShowDialog();
+        }
     }
 }

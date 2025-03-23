@@ -73,7 +73,6 @@ namespace ChessMate_pro
         private void menuPGNButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-
             PGNGenerator pGNGenerator = new PGNGenerator(null, currentUserID);
             pGNGenerator.ShowDialog();
 
@@ -95,6 +94,27 @@ namespace ChessMate_pro
             generator.Show(); // Go back with preserved data
             this.Close(); // Optional: fully close export form
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ScheduleGames scheduleGames = new ScheduleGames(currentUserID);
+            scheduleGames.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UpcomingGames upcomingGames = new UpcomingGames(currentUserID);
+            upcomingGames.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            YourAccount yourAccount = new YourAccount(currentUserID);
+            yourAccount.Show();
         }
     }
 }

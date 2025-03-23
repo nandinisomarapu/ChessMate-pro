@@ -199,7 +199,9 @@ namespace ChessMate_pro
 
         private void yourAccountMenuButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            YourAccount yourAccount = new YourAccount(currentUserID);
+            yourAccount.Show();
         }
     }
 }

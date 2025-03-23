@@ -88,6 +88,7 @@
             this.menuPGNButton.TabIndex = 27;
             this.menuPGNButton.Text = "PGN Generator";
             this.menuPGNButton.UseVisualStyleBackColor = true;
+            this.menuPGNButton.Click += new System.EventHandler(this.menuPGNButton_Click);
             // 
             // yourAccountMenuButton
             // 
@@ -97,6 +98,7 @@
             this.yourAccountMenuButton.TabIndex = 7;
             this.yourAccountMenuButton.Text = "Your Account";
             this.yourAccountMenuButton.UseVisualStyleBackColor = true;
+            this.yourAccountMenuButton.Click += new System.EventHandler(this.yourAccountMenuButton_Click);
             // 
             // upcomingGamesMenuButton
             // 
@@ -125,6 +127,7 @@
             this.viewGamesMenuButton.TabIndex = 4;
             this.viewGamesMenuButton.Text = "View Games";
             this.viewGamesMenuButton.UseVisualStyleBackColor = true;
+            this.viewGamesMenuButton.Click += new System.EventHandler(this.viewGamesMenuButton_Click);
             // 
             // label5
             // 

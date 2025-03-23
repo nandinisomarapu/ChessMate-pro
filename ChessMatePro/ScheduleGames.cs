@@ -91,5 +91,26 @@ namespace ChessMate_pro
             UpcomingGames upcomingGames = new UpcomingGames(currentUserID);
             upcomingGames.ShowDialog();
         }
+
+        private void viewGamesMenuButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameManagement gameManagement = new GameManagement(currentUserID);
+            gameManagement.ShowDialog();
+        }
+
+        private void yourAccountMenuButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            YourAccount yourAccount = new YourAccount(currentUserID);
+            yourAccount.Show();
+        }
+
+        private void menuPGNButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PGNGenerator pgnGenerator = new PGNGenerator(null, currentUserID);
+            pgnGenerator.ShowDialog();
+        }
     }
 }
