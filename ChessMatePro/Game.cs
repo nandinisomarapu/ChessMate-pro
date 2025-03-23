@@ -31,7 +31,7 @@ namespace ChessMate_pro
         [Key]
         public Guid GameID { get; set; }
     
-        public Guid PGNFileID { get; set; }
+        public Guid? PGNFileID { get; set; }
         public virtual PGNFile PGNFile { get; set; } // Navigation property
 
         public Guid UserID { get; set; }

@@ -42,14 +42,14 @@ namespace ChessMate_pro
             {
                 var query = context.Games
                     .Include(g => g.PGNFile)
-                    //.Where(g => g.UserID == currentUserID)
+                    .Where(g => g.UserID == currentUserID)
                     .AsQueryable();
 
                 if (!string.IsNullOrWhiteSpace(txtEventNameFilter.Text))
                 {
                     string eventFilter = txtEventNameFilter.Text.Trim();
 
-                    //MessageBox.Show("eventFilter =" + eventFilter);
+                    MessageBox.Show("eventFilter =" + eventFilter);
 
                     query = query.Where(g => g.EventName.Contains(eventFilter));
                 }
@@ -176,10 +176,30 @@ namespace ChessMate_pro
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PGNGenerator pGNGenerator = new PGNGenerator(currentUserID);
-            pGNGenerator.ShowDialog();
+            PGNGenerator pgnGenerator = new PGNGenerator(null, currentUserID);
+            pgnGenerator.ShowDialog();
+
+
+
         }
 
-     
+        private void scheduleGamesMenuButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ScheduleGames scheduleGames = new ScheduleGames(currentUserID);
+            scheduleGames.ShowDialog();
+        }
+
+        private void upcomingGamesMenuButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UpcomingGames upcomingGames = new UpcomingGames(currentUserID);
+            upcomingGames.ShowDialog();
+        }
+
+        private void yourAccountMenuButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

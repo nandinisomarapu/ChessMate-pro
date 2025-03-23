@@ -79,9 +79,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(204, 245);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Pssword";
+            this.label5.Text = "Password";
             // 
             // label4
             // 

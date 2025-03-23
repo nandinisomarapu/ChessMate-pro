@@ -5304,11 +5304,20 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="moveNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
+  <metadata name="whiteMove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="blackMove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="annotations.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="comments.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="moveNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -5328,7 +5337,7 @@
   <data name="pngGeneratorBackground.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAhIAAAE+CAYAAADYu/lvAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAHVBJREFUeF7t29lyJNdxh3Ha3IbiZm7ios1USJZCsuVLv/9jKGzdWgttSnoCaM6A
+        vAAADrwBlbxySQAAHVBJREFUeF7t29lyJNdxh3Ha3IbiZm7ios1USJZCsuVLv/9jKGzdWgttSnoCaM6A
         STS6q7pOVWWek8t38QsiphsXYNQ/8Q1AvvbN///94Zv/+/vDWy8+ePin19+BM//8xg8ePvry5w+ff/3b
         h3c++OHiewBtb7748OGzn/7q1XPXvP/JjxbfB2h64+X3oU9/8m/fP3fNex9/tfhezNfaoTUEIeHYZUQI
         YgLWriNCEBOwtBQRgpjw6SkkXn7wF0LCnaWIEMQErKxFhCAmYOFeRAhiwp/WDq0hvguJvxESjtyLCEFM

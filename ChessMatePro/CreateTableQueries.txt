@@ -13,9 +13,8 @@ CREATE TABLE [dbo].[Users] (
     CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([userid] ASC)
 );
 
-
 CREATE TABLE [dbo].[Games] (
-    [gameid]       UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(), -- use NEWID() here
+    [gameid]       UNIQUEIDENTIFIER DEFAULT (newid()) NOT NULL,
     [userid]       UNIQUEIDENTIFIER NOT NULL,
     [eventname]    NVARCHAR (MAX)   NOT NULL,
     [date]         DATE             NOT NULL,
@@ -23,10 +22,12 @@ CREATE TABLE [dbo].[Games] (
     [whiteplayer]  NVARCHAR (MAX)   NULL,
     [blackplayer]  NVARCHAR (MAX)   NULL,
     [result]       NVARCHAR (50)    NULL,
-    [pgnfileid]    UNIQUEIDENTIFIER NOT NULL,
+    [pgnfileid]    UNIQUEIDENTIFIER NULL,
     CONSTRAINT [PK_Games] PRIMARY KEY CLUSTERED ([gameid] ASC),
-    CONSTRAINT [FK_Game_User] FOREIGN KEY ([userid]) REFERENCES [Users]([userid])
+    CONSTRAINT [FK_Game_User] FOREIGN KEY ([userid]) REFERENCES [dbo].[Users] ([userid])
 );
+
+
 
 
 

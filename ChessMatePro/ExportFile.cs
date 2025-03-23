@@ -14,23 +14,26 @@ namespace ChessMate_pro
     public partial class ExportFile : Form
     {
         private Guid currentUserID;
-        public ExportFile(Guid userID, string eventName, DateTime date, string opponentName, string result, List<string> moves)
+        private PGNGameData gameData;
+
+        public ExportFile(Guid userID, PGNGameData data)
         {
             InitializeComponent();
             currentUserID = userID;
+            gameData = data;
 
+            string allMoves = string.Join(" ", data.Moves);
 
-            string allMoves = string.Join(" ", moves);
-
-            string pgn = $"[Event \"{eventName}\"]\n" +
-                         $"[Date \"{date:yyyy.MM.dd}\"]\n" +
+            string pgn = $"[Event \"{data.EventName}\"]\n" +
+                         $"[Date \"{data.GameDate:yyyy.MM.dd}\"]\n" +
                          $"[White \"You\"]\n" +
-                         $"[Black \"{opponentName}\"]\n" +
-                         $"[Result \"{result}\"]\n\n" +
+                         $"[Black \"{data.OpponentName}\"]\n" +
+                         $"[Result \"{data.Result}\"]\n\n" +
                          $"{allMoves}";
 
             pgnTextDisplay.Text = pgn;
         }
+
 
 
         private void pgnTextDisplay_TextChanged(object sender, EventArgs e)
@@ -70,8 +73,12 @@ namespace ChessMate_pro
         private void menuPGNButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PGNGenerator pGNGenerator = new PGNGenerator(currentUserID);
+
+            PGNGenerator pGNGenerator = new PGNGenerator(null, currentUserID);
             pGNGenerator.ShowDialog();
+
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,6 +86,15 @@ namespace ChessMate_pro
             this.Hide();
             GameManagement gameManagement = new GameManagement(currentUserID);
             gameManagement.ShowDialog();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide export form
+            PGNGenerator generator = new PGNGenerator(null, currentUserID);
+            generator.Show(); // Go back with preserved data
+            this.Close(); // Optional: fully close export form
+
         }
     }
 }

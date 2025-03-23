@@ -19,16 +19,29 @@ namespace ChessMate_pro
             currentUserID = userID; 
         }
 
-         // Event handler for PGN Generator button click
+        // Event handler for PGN Generator button click
         private void PGNGeneratorButton_Click(object sender, EventArgs e)
         {
-            // Hide the current form
             this.Hide();
 
-            // Create and show the PGN Generator form
-            PGNGenerator pGNGenerator = new PGNGenerator(currentUserID);
-            pGNGenerator.Show();
+            // Create a blank/default PGNGameData object
+            PGNGameData blankData = new PGNGameData
+            {
+                EventName = "",
+                GameDate = DateTime.Now,
+                OpponentName = "",
+                Result = "*",
+                Moves = new List<string>()
+            };
+
+            // Pass both parameters to the constructor
+            PGNGenerator pGNGenerator = new PGNGenerator(null, currentUserID);
+            pGNGenerator.ShowDialog();
         }
+
+
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {

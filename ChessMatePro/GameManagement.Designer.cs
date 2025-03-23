@@ -50,9 +50,9 @@
             this.filteredGameListBox = new System.Windows.Forms.ListBox();
             this.selectedPGNDisplay = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.yourAccountMenuButton = new System.Windows.Forms.Button();
+            this.upcomingGamesMenuButton = new System.Windows.Forms.Button();
+            this.scheduleGamesMenuButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.menuPGNButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -280,9 +280,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.yourAccountMenuButton);
+            this.panel1.Controls.Add(this.upcomingGamesMenuButton);
+            this.panel1.Controls.Add(this.scheduleGamesMenuButton);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.menuPGNButton);
             this.panel1.Controls.Add(this.label5);
@@ -294,32 +294,35 @@
             this.panel1.TabIndex = 25;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button5
+            // yourAccountMenuButton
             // 
-            this.button5.Location = new System.Drawing.Point(0, 203);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Your Account";
-            this.button5.UseVisualStyleBackColor = true;
+            this.yourAccountMenuButton.Location = new System.Drawing.Point(0, 203);
+            this.yourAccountMenuButton.Name = "yourAccountMenuButton";
+            this.yourAccountMenuButton.Size = new System.Drawing.Size(120, 23);
+            this.yourAccountMenuButton.TabIndex = 7;
+            this.yourAccountMenuButton.Text = "Your Account";
+            this.yourAccountMenuButton.UseVisualStyleBackColor = true;
+            this.yourAccountMenuButton.Click += new System.EventHandler(this.yourAccountMenuButton_Click);
             // 
-            // button4
+            // upcomingGamesMenuButton
             // 
-            this.button4.Location = new System.Drawing.Point(0, 139);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Upcoming Games";
-            this.button4.UseVisualStyleBackColor = true;
+            this.upcomingGamesMenuButton.Location = new System.Drawing.Point(0, 139);
+            this.upcomingGamesMenuButton.Name = "upcomingGamesMenuButton";
+            this.upcomingGamesMenuButton.Size = new System.Drawing.Size(120, 23);
+            this.upcomingGamesMenuButton.TabIndex = 6;
+            this.upcomingGamesMenuButton.Text = "Upcoming Games";
+            this.upcomingGamesMenuButton.UseVisualStyleBackColor = true;
+            this.upcomingGamesMenuButton.Click += new System.EventHandler(this.upcomingGamesMenuButton_Click);
             // 
-            // button3
+            // scheduleGamesMenuButton
             // 
-            this.button3.Location = new System.Drawing.Point(0, 110);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Schedule Games";
-            this.button3.UseVisualStyleBackColor = true;
+            this.scheduleGamesMenuButton.Location = new System.Drawing.Point(0, 110);
+            this.scheduleGamesMenuButton.Name = "scheduleGamesMenuButton";
+            this.scheduleGamesMenuButton.Size = new System.Drawing.Size(120, 23);
+            this.scheduleGamesMenuButton.TabIndex = 5;
+            this.scheduleGamesMenuButton.Text = "Schedule Games";
+            this.scheduleGamesMenuButton.UseVisualStyleBackColor = true;
+            this.scheduleGamesMenuButton.Click += new System.EventHandler(this.scheduleGamesMenuButton_Click);
             // 
             // button2
             // 
@@ -441,8 +444,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button yourAccountMenuButton;
+        private System.Windows.Forms.Button upcomingGamesMenuButton;
+        private System.Windows.Forms.Button scheduleGamesMenuButton;
     }
 }
