@@ -56,11 +56,12 @@ namespace ChessMate_pro
                 MessageBox.Show("Database connection is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             // Validate that all fields are filled
             if (!string.IsNullOrWhiteSpace(confirmpassword.Text) &&
                 !string.IsNullOrWhiteSpace(password.Text) &&
-                !string.IsNullOrWhiteSpace(username.Text))
+                !string.IsNullOrWhiteSpace(username.Text) &&
+                !string.IsNullOrWhiteSpace(email.Text))
             {
                 // Check if passwords match
                 if (password.Text == confirmpassword.Text)
@@ -82,9 +83,10 @@ namespace ChessMate_pro
                         {
                             dr.Close();
                             // Insert new user into database
-                            cmd = new SqlCommand("INSERT INTO Users (username, password) VALUES (@username, @password)", cn);
+                            cmd = new SqlCommand("INSERT INTO Users (username, password, email) VALUES (@username, @password, @email)", cn);
                             cmd.Parameters.AddWithValue("@username", username.Text);
                             cmd.Parameters.AddWithValue("@password", hashPassword(password.Text));
+                            cmd.Parameters.AddWithValue("@email", email.Text);
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Your account has been created, and you are ready to login now!",
                                 "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);

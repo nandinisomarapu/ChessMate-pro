@@ -36,8 +36,8 @@
             this.exportFileButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButtonWin = new System.Windows.Forms.RadioButton();
             this.radioButtonLose = new System.Windows.Forms.RadioButton();
+            this.radioButtonWin = new System.Windows.Forms.RadioButton();
             this.moveTable = new System.Windows.Forms.DataGridView();
             this.moveNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.whiteMove = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,11 +57,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pngGeneratorBackground = new System.Windows.Forms.PictureBox();
+            this.resultRadioButtonPanel = new System.Windows.Forms.PictureBox();
+            this.playerTypeLabel = new System.Windows.Forms.Label();
+            this.whitePlayerRadioButton = new System.Windows.Forms.RadioButton();
+            this.blackPlayerRadioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveTable)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pngGeneratorBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultRadioButtonPanel)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -77,24 +84,24 @@
             // 
             // eventNameInput
             // 
-            this.eventNameInput.Location = new System.Drawing.Point(311, 73);
+            this.eventNameInput.Location = new System.Drawing.Point(323, 73);
             this.eventNameInput.Name = "eventNameInput";
-            this.eventNameInput.Size = new System.Drawing.Size(431, 20);
+            this.eventNameInput.Size = new System.Drawing.Size(419, 20);
             this.eventNameInput.TabIndex = 2;
             this.eventNameInput.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(311, 102);
+            this.dateTimePicker1.Location = new System.Drawing.Point(323, 102);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(431, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(419, 20);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // opponentNameInput
             // 
-            this.opponentNameInput.Location = new System.Drawing.Point(311, 133);
+            this.opponentNameInput.Location = new System.Drawing.Point(323, 133);
             this.opponentNameInput.Name = "opponentNameInput";
-            this.opponentNameInput.Size = new System.Drawing.Size(431, 20);
+            this.opponentNameInput.Size = new System.Drawing.Size(419, 20);
             this.opponentNameInput.TabIndex = 4;
             // 
             // exportFileButton
@@ -107,7 +114,7 @@
             this.exportFileButton.TabIndex = 5;
             this.exportFileButton.Text = "EXPORT FILE";
             this.exportFileButton.UseVisualStyleBackColor = false;
-            this.exportFileButton.Click += new System.EventHandler(this.button1_Click);
+            this.exportFileButton.Click += new System.EventHandler(this.exportFile_Click);
             // 
             // label1
             // 
@@ -125,35 +132,36 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(190, 161);
+            this.label2.Location = new System.Drawing.Point(190, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 14;
             this.label2.Text = "Result";
             // 
-            // radioButtonWin
-            // 
-            this.radioButtonWin.AutoSize = true;
-            this.radioButtonWin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButtonWin.Location = new System.Drawing.Point(311, 161);
-            this.radioButtonWin.Name = "radioButtonWin";
-            this.radioButtonWin.Size = new System.Drawing.Size(46, 17);
-            this.radioButtonWin.TabIndex = 15;
-            this.radioButtonWin.TabStop = true;
-            this.radioButtonWin.Text = "0 - 1";
-            this.radioButtonWin.UseVisualStyleBackColor = true;
-            // 
             // radioButtonLose
             // 
             this.radioButtonLose.AutoSize = true;
-            this.radioButtonLose.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.radioButtonLose.Location = new System.Drawing.Point(390, 161);
+            this.radioButtonLose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.radioButtonLose.Location = new System.Drawing.Point(156, 10);
             this.radioButtonLose.Name = "radioButtonLose";
-            this.radioButtonLose.Size = new System.Drawing.Size(43, 17);
-            this.radioButtonLose.TabIndex = 16;
+            this.radioButtonLose.Size = new System.Drawing.Size(46, 17);
+            this.radioButtonLose.TabIndex = 15;
             this.radioButtonLose.TabStop = true;
-            this.radioButtonLose.Text = "1- 0";
+            this.radioButtonLose.Text = "0 - 1";
             this.radioButtonLose.UseVisualStyleBackColor = true;
+            this.radioButtonLose.CheckedChanged += new System.EventHandler(this.radioButtonLose_CheckedChanged);
+            // 
+            // radioButtonWin
+            // 
+            this.radioButtonWin.AutoSize = true;
+            this.radioButtonWin.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.radioButtonWin.Location = new System.Drawing.Point(6, 10);
+            this.radioButtonWin.Name = "radioButtonWin";
+            this.radioButtonWin.Size = new System.Drawing.Size(43, 17);
+            this.radioButtonWin.TabIndex = 16;
+            this.radioButtonWin.TabStop = true;
+            this.radioButtonWin.Text = "1- 0";
+            this.radioButtonWin.UseVisualStyleBackColor = true;
             // 
             // moveTable
             // 
@@ -164,9 +172,9 @@
             this.blackMove,
             this.annotations,
             this.comments});
-            this.moveTable.Location = new System.Drawing.Point(190, 189);
+            this.moveTable.Location = new System.Drawing.Point(190, 242);
             this.moveTable.Name = "moveTable";
-            this.moveTable.Size = new System.Drawing.Size(552, 185);
+            this.moveTable.Size = new System.Drawing.Size(552, 132);
             this.moveTable.TabIndex = 17;
             this.moveTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -339,15 +347,74 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Game Tools";
             // 
-            // pngGeneratorBackground
+            // resultRadioButtonPanel
             // 
-            this.pngGeneratorBackground.Image = ((System.Drawing.Image)(resources.GetObject("pngGeneratorBackground.Image")));
-            this.pngGeneratorBackground.Location = new System.Drawing.Point(-2, 0);
-            this.pngGeneratorBackground.Name = "pngGeneratorBackground";
-            this.pngGeneratorBackground.Size = new System.Drawing.Size(776, 462);
-            this.pngGeneratorBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pngGeneratorBackground.TabIndex = 27;
-            this.pngGeneratorBackground.TabStop = false;
+            this.resultRadioButtonPanel.Image = ((System.Drawing.Image)(resources.GetObject("resultRadioButtonPanel.Image")));
+            this.resultRadioButtonPanel.Location = new System.Drawing.Point(-4, 0);
+            this.resultRadioButtonPanel.Name = "resultRadioButtonPanel";
+            this.resultRadioButtonPanel.Size = new System.Drawing.Size(776, 462);
+            this.resultRadioButtonPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.resultRadioButtonPanel.TabIndex = 27;
+            this.resultRadioButtonPanel.TabStop = false;
+            // 
+            // playerTypeLabel
+            // 
+            this.playerTypeLabel.AutoSize = true;
+            this.playerTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.playerTypeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.playerTypeLabel.Location = new System.Drawing.Point(190, 211);
+            this.playerTypeLabel.Name = "playerTypeLabel";
+            this.playerTypeLabel.Size = new System.Drawing.Size(118, 17);
+            this.playerTypeLabel.TabIndex = 28;
+            this.playerTypeLabel.Text = "Your Player Type";
+            // 
+            // whitePlayerRadioButton
+            // 
+            this.whitePlayerRadioButton.AutoSize = true;
+            this.whitePlayerRadioButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.whitePlayerRadioButton.Location = new System.Drawing.Point(6, 12);
+            this.whitePlayerRadioButton.Name = "whitePlayerRadioButton";
+            this.whitePlayerRadioButton.Size = new System.Drawing.Size(120, 17);
+            this.whitePlayerRadioButton.TabIndex = 29;
+            this.whitePlayerRadioButton.TabStop = true;
+            this.whitePlayerRadioButton.Text = "White Moves Player";
+            this.whitePlayerRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // blackPlayerRadioButton
+            // 
+            this.blackPlayerRadioButton.AutoSize = true;
+            this.blackPlayerRadioButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.blackPlayerRadioButton.Location = new System.Drawing.Point(156, 15);
+            this.blackPlayerRadioButton.Name = "blackPlayerRadioButton";
+            this.blackPlayerRadioButton.Size = new System.Drawing.Size(119, 17);
+            this.blackPlayerRadioButton.TabIndex = 30;
+            this.blackPlayerRadioButton.TabStop = true;
+            this.blackPlayerRadioButton.Text = "Black Moves Player";
+            this.blackPlayerRadioButton.UseVisualStyleBackColor = true;
+            this.blackPlayerRadioButton.CheckedChanged += new System.EventHandler(this.blackPlayerRadioButton_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButtonWin);
+            this.groupBox1.Controls.Add(this.radioButtonLose);
+            this.groupBox1.Location = new System.Drawing.Point(323, 161);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(419, 32);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.whitePlayerRadioButton);
+            this.groupBox2.Controls.Add(this.blackPlayerRadioButton);
+            this.groupBox2.Location = new System.Drawing.Point(323, 199);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(419, 37);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
             // 
             // PGNGenerator
             // 
@@ -355,14 +422,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(772, 462);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.playerTypeLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.saveFileButton);
             this.Controls.Add(this.moveTable);
-            this.Controls.Add(this.radioButtonLose);
-            this.Controls.Add(this.radioButtonWin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.exportFileButton);
@@ -370,14 +438,18 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.eventNameInput);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pngGeneratorBackground);
+            this.Controls.Add(this.resultRadioButtonPanel);
             this.Name = "PGNGenerator";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveTable)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pngGeneratorBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resultRadioButtonPanel)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,8 +464,8 @@
         private System.Windows.Forms.Button exportFileButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButtonWin;
         private System.Windows.Forms.RadioButton radioButtonLose;
+        private System.Windows.Forms.RadioButton radioButtonWin;
         private System.Windows.Forms.DataGridView moveTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn moveNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn whiteMove;
@@ -413,6 +485,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button menuPGNButton;
-        private System.Windows.Forms.PictureBox pngGeneratorBackground;
+        private System.Windows.Forms.PictureBox resultRadioButtonPanel;
+        private System.Windows.Forms.Label playerTypeLabel;
+        private System.Windows.Forms.RadioButton whitePlayerRadioButton;
+        private System.Windows.Forms.RadioButton blackPlayerRadioButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

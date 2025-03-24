@@ -10,7 +10,10 @@ namespace ChessMate_pro
     {
         public string EventName { get; set; }
         public DateTime GameDate { get; set; }
-        public string OpponentName { get; set; }
+        public string White { get; set; }
+
+        public string Black { get; set; }
+
         public string Result { get; set; }
         public List<string> Moves { get; set; }
 

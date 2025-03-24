@@ -24,16 +24,6 @@ namespace ChessMate_pro
         {
             this.Hide();
 
-            // Create a blank/default PGNGameData object
-            PGNGameData blankData = new PGNGameData
-            {
-                EventName = "",
-                GameDate = DateTime.Now,
-                OpponentName = "",
-                Result = "*",
-                Moves = new List<string>()
-            };
-
             // Pass both parameters to the constructor
             PGNGenerator pGNGenerator = new PGNGenerator(null, currentUserID);
             pGNGenerator.ShowDialog();

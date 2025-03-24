@@ -26,8 +26,8 @@ namespace ChessMate_pro
 
             string pgn = $"[Event \"{data.EventName}\"]\n" +
                          $"[Date \"{data.GameDate:yyyy.MM.dd}\"]\n" +
-                         $"[White \"You\"]\n" +
-                         $"[Black \"{data.OpponentName}\"]\n" +
+                         $"[White \"{data.White}\"]\n" + 
+                         $"[Black \"{data.Black}\"]\n" + 
                          $"[Result \"{data.Result}\"]\n\n" +
                          $"{allMoves}";
 

@@ -25,8 +25,8 @@ namespace ChessMate_pro
 
                 if (user != null)
                 {
-                    labelUsernameValue.Text = user.Username;
                     labelEmailValue.Text = user.Email;
+                    usernameDisplayLabel.Text = user.Username;
                 }
 
                 // Load game stats only for the games that have a PGN file (will have result of 0-1 or 1-0)
@@ -91,6 +91,35 @@ namespace ChessMate_pro
             this.Hide();
             PGNGenerator pgnGenerator = new PGNGenerator(null, currentUserID);
             pgnGenerator.ShowDialog();
+        }
+
+        private void newAccountButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUp signUp = new SignUp();
+            signUp.ShowDialog();
+        }
+
+        private void signOutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+        }
+
+        private void usernameDisplayLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gamesPlayedValueLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

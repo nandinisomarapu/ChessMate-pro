@@ -48,8 +48,8 @@ namespace ChessMate_pro
                 if (!string.IsNullOrWhiteSpace(txtEventNameFilter.Text))
                 {
                     string eventFilter = txtEventNameFilter.Text.Trim();
-
-                    MessageBox.Show("eventFilter =" + eventFilter);
+                    
+                    //MessageBox.Show("eventFilter =" + eventFilter);
 
                     query = query.Where(g => g.EventName.Contains(eventFilter));
                 }

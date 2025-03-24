@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.PGNPreviewLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -70,9 +71,9 @@
             // 
             // pgnTextDisplay
             // 
-            this.pgnTextDisplay.Location = new System.Drawing.Point(203, 15);
+            this.pgnTextDisplay.Location = new System.Drawing.Point(203, 63);
             this.pgnTextDisplay.Name = "pgnTextDisplay";
-            this.pgnTextDisplay.Size = new System.Drawing.Size(575, 339);
+            this.pgnTextDisplay.Size = new System.Drawing.Size(575, 291);
             this.pgnTextDisplay.TabIndex = 3;
             this.pgnTextDisplay.Text = "";
             this.pgnTextDisplay.TextChanged += new System.EventHandler(this.pgnTextDisplay_TextChanged);
@@ -198,12 +199,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // PGNPreviewLabel
+            // 
+            this.PGNPreviewLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.PGNPreviewLabel.Location = new System.Drawing.Point(203, 12);
+            this.PGNPreviewLabel.Name = "PGNPreviewLabel";
+            this.PGNPreviewLabel.Padding = new System.Windows.Forms.Padding(226, 10, 226, 10);
+            this.PGNPreviewLabel.Size = new System.Drawing.Size(575, 33);
+            this.PGNPreviewLabel.TabIndex = 30;
+            this.PGNPreviewLabel.Text = "Preview of PGN File";
+            // 
             // ExportFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PGNPreviewLabel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
@@ -236,5 +248,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label PGNPreviewLabel;
     }
 }

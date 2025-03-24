@@ -43,12 +43,16 @@
             this.myAccountLabelTitle = new System.Windows.Forms.Label();
             this.labelEmailValue = new System.Windows.Forms.Label();
             this.labelWinsValue = new System.Windows.Forms.Label();
-            this.nameLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.winsLabel = new System.Windows.Forms.Label();
             this.lossesLabel = new System.Windows.Forms.Label();
             this.labelLossesValue = new System.Windows.Forms.Label();
-            this.labelUsernameValue = new System.Windows.Forms.Label();
+            this.newAccountButton = new System.Windows.Forms.Button();
+            this.signOutButton = new System.Windows.Forms.Button();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.usernameDisplayLabel = new System.Windows.Forms.Label();
+            this.accountDetialsLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,7 +61,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(804, 452);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -186,101 +190,130 @@
             // 
             // labelEmailValue
             // 
-            this.labelEmailValue.AutoSize = true;
             this.labelEmailValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelEmailValue.Location = new System.Drawing.Point(502, 160);
+            this.labelEmailValue.Location = new System.Drawing.Point(413, 181);
             this.labelEmailValue.Name = "labelEmailValue";
-            this.labelEmailValue.Padding = new System.Windows.Forms.Padding(100, 15, 100, 15);
-            this.labelEmailValue.Size = new System.Drawing.Size(210, 43);
+            this.labelEmailValue.Padding = new System.Windows.Forms.Padding(100, 5, 100, 5);
+            this.labelEmailValue.Size = new System.Drawing.Size(302, 25);
             this.labelEmailValue.TabIndex = 31;
             this.labelEmailValue.Text = " ";
             this.labelEmailValue.Click += new System.EventHandler(this.labelEmailValue_Click);
             // 
             // labelWinsValue
             // 
-            this.labelWinsValue.AutoSize = true;
             this.labelWinsValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelWinsValue.Location = new System.Drawing.Point(501, 313);
+            this.labelWinsValue.Location = new System.Drawing.Point(413, 331);
             this.labelWinsValue.Name = "labelWinsValue";
-            this.labelWinsValue.Padding = new System.Windows.Forms.Padding(100, 15, 100, 15);
-            this.labelWinsValue.Size = new System.Drawing.Size(210, 43);
+            this.labelWinsValue.Padding = new System.Windows.Forms.Padding(100, 5, 100, 5);
+            this.labelWinsValue.Size = new System.Drawing.Size(302, 28);
             this.labelWinsValue.TabIndex = 34;
             this.labelWinsValue.Text = " ";
             // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.BackColor = System.Drawing.Color.SlateGray;
-            this.nameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(202, 116);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Padding = new System.Windows.Forms.Padding(80, 5, 80, 5);
-            this.nameLabel.Size = new System.Drawing.Size(210, 28);
-            this.nameLabel.TabIndex = 36;
-            this.nameLabel.Text = "Name";
-            // 
             // emailLabel
             // 
-            this.emailLabel.AutoSize = true;
             this.emailLabel.BackColor = System.Drawing.Color.SlateGray;
             this.emailLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLabel.Location = new System.Drawing.Point(498, 116);
+            this.emailLabel.Location = new System.Drawing.Point(202, 181);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Padding = new System.Windows.Forms.Padding(83, 5, 83, 5);
-            this.emailLabel.Size = new System.Drawing.Size(214, 28);
+            this.emailLabel.Size = new System.Drawing.Size(183, 28);
             this.emailLabel.TabIndex = 37;
             this.emailLabel.Text = "Email";
             // 
             // winsLabel
             // 
-            this.winsLabel.AutoSize = true;
             this.winsLabel.BackColor = System.Drawing.Color.SlateGray;
             this.winsLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.winsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.winsLabel.Location = new System.Drawing.Point(205, 270);
+            this.winsLabel.Location = new System.Drawing.Point(202, 295);
             this.winsLabel.Name = "winsLabel";
-            this.winsLabel.Padding = new System.Windows.Forms.Padding(80, 5, 80, 5);
-            this.winsLabel.Size = new System.Drawing.Size(203, 28);
+            this.winsLabel.Size = new System.Drawing.Size(183, 28);
             this.winsLabel.TabIndex = 38;
             this.winsLabel.Text = "Wins";
             // 
             // lossesLabel
             // 
-            this.lossesLabel.AutoSize = true;
             this.lossesLabel.BackColor = System.Drawing.Color.SlateGray;
             this.lossesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lossesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lossesLabel.Location = new System.Drawing.Point(504, 270);
+            this.lossesLabel.Location = new System.Drawing.Point(202, 331);
             this.lossesLabel.Name = "lossesLabel";
-            this.lossesLabel.Padding = new System.Windows.Forms.Padding(74, 5, 74, 5);
-            this.lossesLabel.Size = new System.Drawing.Size(207, 28);
+            this.lossesLabel.Size = new System.Drawing.Size(183, 28);
             this.lossesLabel.TabIndex = 39;
             this.lossesLabel.Text = "Losses";
             // 
             // labelLossesValue
             // 
-            this.labelLossesValue.AutoSize = true;
             this.labelLossesValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelLossesValue.Location = new System.Drawing.Point(202, 313);
+            this.labelLossesValue.Location = new System.Drawing.Point(413, 289);
             this.labelLossesValue.Name = "labelLossesValue";
-            this.labelLossesValue.Padding = new System.Windows.Forms.Padding(100, 15, 100, 15);
-            this.labelLossesValue.Size = new System.Drawing.Size(210, 43);
+            this.labelLossesValue.Padding = new System.Windows.Forms.Padding(100, 5, 100, 5);
+            this.labelLossesValue.Size = new System.Drawing.Size(302, 28);
             this.labelLossesValue.TabIndex = 35;
             this.labelLossesValue.Text = " ";
             // 
-            // labelUsernameValue
+            // newAccountButton
             // 
-            this.labelUsernameValue.AutoSize = true;
-            this.labelUsernameValue.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelUsernameValue.Location = new System.Drawing.Point(202, 160);
-            this.labelUsernameValue.Name = "labelUsernameValue";
-            this.labelUsernameValue.Padding = new System.Windows.Forms.Padding(100, 15, 100, 15);
-            this.labelUsernameValue.Size = new System.Drawing.Size(210, 43);
-            this.labelUsernameValue.TabIndex = 30;
-            this.labelUsernameValue.Text = " ";
-            this.labelUsernameValue.Click += new System.EventHandler(this.labelUsernameValue_Click);
+            this.newAccountButton.Location = new System.Drawing.Point(674, 369);
+            this.newAccountButton.Name = "newAccountButton";
+            this.newAccountButton.Size = new System.Drawing.Size(114, 31);
+            this.newAccountButton.TabIndex = 40;
+            this.newAccountButton.Text = "Create New Account";
+            this.newAccountButton.UseVisualStyleBackColor = true;
+            this.newAccountButton.Click += new System.EventHandler(this.newAccountButton_Click);
+            // 
+            // signOutButton
+            // 
+            this.signOutButton.Location = new System.Drawing.Point(674, 410);
+            this.signOutButton.Name = "signOutButton";
+            this.signOutButton.Size = new System.Drawing.Size(114, 31);
+            this.signOutButton.TabIndex = 41;
+            this.signOutButton.Text = "Sign Out";
+            this.signOutButton.UseVisualStyleBackColor = true;
+            this.signOutButton.Click += new System.EventHandler(this.signOutButton_Click);
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.BackColor = System.Drawing.Color.SlateGray;
+            this.usernameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.Location = new System.Drawing.Point(202, 144);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(183, 28);
+            this.usernameLabel.TabIndex = 43;
+            this.usernameLabel.Text = "Username";
+            this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
+            // 
+            // usernameDisplayLabel
+            // 
+            this.usernameDisplayLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.usernameDisplayLabel.Location = new System.Drawing.Point(413, 144);
+            this.usernameDisplayLabel.Name = "usernameDisplayLabel";
+            this.usernameDisplayLabel.Padding = new System.Windows.Forms.Padding(100, 5, 100, 5);
+            this.usernameDisplayLabel.Size = new System.Drawing.Size(302, 25);
+            this.usernameDisplayLabel.TabIndex = 44;
+            this.usernameDisplayLabel.Text = " ";
+            this.usernameDisplayLabel.Click += new System.EventHandler(this.usernameDisplayLabel_Click);
+            // 
+            // accountDetialsLabel
+            // 
+            this.accountDetialsLabel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.accountDetialsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountDetialsLabel.Location = new System.Drawing.Point(202, 98);
+            this.accountDetialsLabel.Name = "accountDetialsLabel";
+            this.accountDetialsLabel.Size = new System.Drawing.Size(513, 23);
+            this.accountDetialsLabel.TabIndex = 45;
+            this.accountDetialsLabel.Text = "Account Details";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(202, 255);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(513, 23);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Game Statistics";
             // 
             // YourAccount
             // 
@@ -288,14 +321,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.accountDetialsLabel);
+            this.Controls.Add(this.usernameDisplayLabel);
+            this.Controls.Add(this.usernameLabel);
+            this.Controls.Add(this.signOutButton);
+            this.Controls.Add(this.newAccountButton);
             this.Controls.Add(this.lossesLabel);
             this.Controls.Add(this.winsLabel);
             this.Controls.Add(this.emailLabel);
-            this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.labelLossesValue);
             this.Controls.Add(this.labelWinsValue);
             this.Controls.Add(this.labelEmailValue);
-            this.Controls.Add(this.labelUsernameValue);
             this.Controls.Add(this.myAccountLabelTitle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -328,11 +365,15 @@
         private System.Windows.Forms.Label myAccountLabelTitle;
         private System.Windows.Forms.Label labelEmailValue;
         private System.Windows.Forms.Label labelWinsValue;
-        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label winsLabel;
         private System.Windows.Forms.Label lossesLabel;
         private System.Windows.Forms.Label labelLossesValue;
-        private System.Windows.Forms.Label labelUsernameValue;
+        private System.Windows.Forms.Button newAccountButton;
+        private System.Windows.Forms.Button signOutButton;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.Label usernameDisplayLabel;
+        private System.Windows.Forms.Label accountDetialsLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

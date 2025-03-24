@@ -31,8 +31,8 @@ namespace ChessMate_pro
                 opponentNameInput.Text = game.OpponentName;
                 dateTimePicker1.Value = game.Date;
 
-                if (game.Result == "1-0") radioButtonWin.Checked = true;
-                else if (game.Result == "0-1") radioButtonLose.Checked = true;
+                if (game.Result == "1-0") radioButtonLose.Checked = true;
+                else if (game.Result == "0-1") radioButtonWin.Checked = true;
 
                 // Populate move table (optional — assuming you parse each move)
                 foreach (var move in game.MoveList)
@@ -63,7 +63,7 @@ namespace ChessMate_pro
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void exportFile_Click(object sender, EventArgs e)
         {
             // Get basic input from the user
             string eventName = eventNameInput.Text.Trim();
@@ -71,8 +71,8 @@ namespace ChessMate_pro
             string opponentName = opponentNameInput.Text.Trim();
 
             // Determine game result
-            string result = radioButtonWin.Checked ? "1-0" :
-                            radioButtonLose.Checked ? "0-1" : "*";
+            string result = radioButtonLose.Checked ? "0-1" :
+                            radioButtonWin.Checked ? "1-0" : "*";
 
             // Build list of moves from the moveTable (DataGridView)
             List<string> moveList = new List<string>();
@@ -98,11 +98,29 @@ namespace ChessMate_pro
                     moveList.Add(formattedMove);
                 }
             }
+
+
+            String whiteMovesPlayerName = null;
+            String blackMovesPlayerName = null;
+
+            if (whitePlayerRadioButton.Checked)
+            {
+                whiteMovesPlayerName = "You";
+                blackMovesPlayerName = opponentName;
+            }
+            else
+            {
+                whiteMovesPlayerName = opponentName;
+                blackMovesPlayerName = "You";
+
+            }
+
             PGNGameData gameData = new PGNGameData
             {
                 EventName = eventName,
                 GameDate = gameDate,
-                OpponentName = opponentName,
+                White = whiteMovesPlayerName,
+                Black = blackMovesPlayerName,
                 Result = result,
                 Moves = moveList
             };
@@ -159,12 +177,14 @@ namespace ChessMate_pro
         {
             if (!string.IsNullOrWhiteSpace(eventNameInput.Text.Trim()) &&
                !string.IsNullOrWhiteSpace(opponentNameInput.Text.Trim()) &&
-                    (radioButtonWin.Checked || radioButtonLose.Checked))
+                    (radioButtonLose.Checked || radioButtonWin.Checked)  &&
+                    (whitePlayerRadioButton.Checked || blackPlayerRadioButton.Checked) 
+                    )
             {
                 string eventName = eventNameInput.Text.Trim();
                 DateTime gameDate = dateTimePicker1.Value.Date;
                 string opponentName = opponentNameInput.Text.Trim();
-                string result = radioButtonWin.Checked ? "Win" : radioButtonLose.Checked ? "Lose" : "Unknown";
+                string result = radioButtonLose.Checked ? "Win" : radioButtonWin.Checked ? "Lose" : "Unknown";
 
                 // Build PGN-related text from moveTable
                 List<string> moves = new List<string>();
@@ -210,6 +230,21 @@ namespace ChessMate_pro
 
                         Guid pgnFileId = (Guid)insertPGN.ExecuteScalar();
 
+                        String whiteMovesPlayerName = null;
+                        String blackMovesPlayerName = null;
+
+                        if (whitePlayerRadioButton.Checked)
+                        {
+                            whiteMovesPlayerName = "You";
+                            blackMovesPlayerName = opponentName;
+                        }
+                        else
+                        {
+                            whiteMovesPlayerName = opponentName;
+                            blackMovesPlayerName = "You";
+
+                        }
+
                         if (scheduledGame != null)
                         {
                             // Update the scheduled game with the PGNFileID
@@ -223,6 +258,7 @@ namespace ChessMate_pro
                         }
                         else
                         {
+                           
                             // Insert into Game table
                             SqlCommand insertGame = new SqlCommand(
                                 @"INSERT INTO Games (eventname, date, opponentname, result, pgnfileid, userid)
@@ -232,6 +268,8 @@ namespace ChessMate_pro
                             insertGame.Parameters.AddWithValue("@OpponentName", opponentName);
                             insertGame.Parameters.AddWithValue("@Result", result);
                             insertGame.Parameters.AddWithValue("@PGNFileID", pgnFileId);
+                            insertGame.Parameters.AddWithValue("@blackplayer", blackPlayerRadioButton.Checked); 
+
                             //MessageBox.Show("Saving with UserID: " + currentUserID.ToString() + " Type: " + currentUserID.GetType());
                             //MessageBox.Show("Saving with PGNFileID: " + pgnFileId.ToString() + " Type: " + pgnFileId.GetType());
                             insertGame.Parameters.AddWithValue("@UserID", currentUserID);
@@ -253,7 +291,7 @@ namespace ChessMate_pro
             }
             else
             {
-                MessageBox.Show("Please fill in all required fields (Event Name, Opponent Name, and Game Result) before saving the game.");
+                MessageBox.Show("Please fill in all required fields (Event Name, Opponent Name, Player Move Type, and Game Result) before saving the game.");
             }
         }
 
@@ -290,6 +328,21 @@ namespace ChessMate_pro
             this.Hide();
             YourAccount yourAccount = new YourAccount(currentUserID);
             yourAccount.Show();
+        }
+
+        private void blackPlayerRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonLose_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -40,7 +40,7 @@ namespace ChessMate_pro
 
                 string sql = ((System.Data.Entity.Infrastructure.DbQuery<Game>)query).ToString();
                 Debug.WriteLine(sql);
-                MessageBox.Show(sql);
+                //MessageBox.Show(sql);
 
 
                 scheduledGames = query.ToList();
