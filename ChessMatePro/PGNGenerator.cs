@@ -184,7 +184,7 @@ namespace ChessMate_pro
                 string eventName = eventNameInput.Text.Trim();
                 DateTime gameDate = dateTimePicker1.Value.Date;
                 string opponentName = opponentNameInput.Text.Trim();
-                string result = radioButtonLose.Checked ? "Win" : radioButtonWin.Checked ? "Lose" : "Unknown";
+                string result = radioButtonLose.Checked ? "Lose" : radioButtonWin.Checked ? "Win" : "Unknown";
 
                 // Build PGN-related text from moveTable
                 List<string> moves = new List<string>();
