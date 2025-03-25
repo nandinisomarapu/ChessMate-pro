@@ -217,14 +217,13 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(190, 29);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(226, 10, 226, 10);
             this.label3.Size = new System.Drawing.Size(552, 33);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Game Management";
+            this.label3.Text = "PGN Generator";
             // 
             // label4
             // 
